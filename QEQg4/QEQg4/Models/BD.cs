@@ -16,9 +16,9 @@ namespace QEQg4.Models
           return conex;
         }
 
-        public static string loginUsuario(string Username, string password)
+        public static bool loginUsuario(string Username, string password)
         {
-            string Devuelve = "";
+            bool Devuelve = false;
             SqlConnection conex = conectar();
             SqlCommand Consulta = conex.CreateCommand();
             Consulta.CommandText = "LoginUsuario";
@@ -28,8 +28,9 @@ namespace QEQg4.Models
             SqlDataReader dataReader = Consulta.ExecuteReader();
             if(dataReader.Read())
             {
-                Devuelve = dataReader["username"].ToString();
-            }
+               
+                Devuelve = Convert.ToBoolean(dataReader["x"]);
+                    }
             desconectar(conex);
             return Devuelve;
         }
