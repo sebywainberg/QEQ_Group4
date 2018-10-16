@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2003
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QEQg4", "QEQ_Group4\QEQg4\QEQg4\QEQg4.csproj", "{9353B034-07AA-4018-8F7C-4D960DE87BFA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QEQg4", "QEQg4\QEQg4.csproj", "{9353B034-07AA-4018-8F7C-4D960DE87BFA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
