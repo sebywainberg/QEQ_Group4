@@ -16,12 +16,84 @@ namespace QEQg4.Models
 
  
 
-        public int Id { get => _id; set => _id = value; }
-        public string Username { get => _username; set => _username = value; }
-        public string Password { get => _password; set => _password = value; }
-        public string Nombre { get => _Nombre; set => _Nombre = value; }
-        public int Puntos { get => _puntos; set => _puntos = value; }
-        public bool EsAdmin { get => _EsAdmin; set => _EsAdmin = value; }
+     
+public int Id1
+        {
+            get
+            {
+                return _id;
+            }
+
+            set
+            {
+                _id = value;
+            }
+        }
+
+        public string Username1
+        {
+            get
+            {
+                return _username;
+            }
+
+            set
+            {
+                _username = value;
+            }
+        }
+
+        public string Password1
+        {
+            get
+            {
+                return _password;
+            }
+
+            set
+            {
+                _password = value;
+            }
+        }
+
+        public string Nombre1
+        {
+            get
+            {
+                return _Nombre;
+            }
+
+            set
+            {
+                _Nombre = value;
+            }
+        }
+
+        public int Puntos1
+        {
+            get
+            {
+                return _puntos;
+            }
+
+            set
+            {
+                _puntos = value;
+            }
+        }
+
+        public bool EsAdmin1
+        {
+            get
+            {
+                return _EsAdmin;
+            }
+
+            set
+            {
+                _EsAdmin = value;
+            }
+        }
 
         public usuario(int idd, string user, string pass, string Nomb, int punto, bool EsAdm)
         {

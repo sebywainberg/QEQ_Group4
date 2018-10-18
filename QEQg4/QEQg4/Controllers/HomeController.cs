@@ -19,6 +19,11 @@ namespace QEQg4.Controllers
 
             return View();
         }
+        public ActionResult Instrucciones()
+        {
+            
+            return View();
+        }
 
         public ActionResult Contact()
         {

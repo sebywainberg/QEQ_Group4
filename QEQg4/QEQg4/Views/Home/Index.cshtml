@@ -4,11 +4,15 @@
 
 <head>
     <title>"Quien es Quien? "</title>
-</head>
+</head>>
 
-<body>
+<body background ="">
 
     <h1>Quien es Quien?</h1>
-    <h2>Adiviná el personaje</h2>
+    <button class="Jugar"> Jugar </button>
+    <button class="IniciarSesion"> Iniciar sesión </button>
+    <p> Instrucciones </p>
+    
+    @Html.ActionLink("Ver Más", "Instrucciones","Home",null,new { @class="VerMás", target = "_blank" })
 
 </body>
