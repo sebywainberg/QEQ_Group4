@@ -34,8 +34,10 @@ namespace QEQg4.Models
             desconectar(conex);
             return Devuelve;
         }
-        public static int registerUsuario(string Username, string password, string nombre, bool EsAdmin = false, int puntos = 0)
+        public static int registerUsuario(string Username, string password, string nombre)
         {
+            int puntos = 0;
+            bool EsAdmin = false;
             int Devuelve = 0;
             SqlConnection conex = conectar();
             SqlCommand Consulta = conex.CreateCommand();
