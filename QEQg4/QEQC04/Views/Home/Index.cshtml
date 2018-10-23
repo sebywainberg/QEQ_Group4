@@ -10,10 +10,10 @@
 
     <h1>Quien es Quien?</h1>
     <button class="Jugar"> Jugar </button>
-    <button class="IniciarSesion"> Iniciar sesión </button>
-    <p> Instrucciones </p>
 
-    @Html.ActionLink("Ver Más", "Instrucciones", "Home", null, new { @class = "VerMás", target = "_blank" })
+    @Html.ActionLink("Instrucciones", "Instrucciones", "Home", null, new { @class = "VerMás", target = "_blank" })
     @Html.ActionLink("Sign In", "Login", "Backoffice")
     @Html.ActionLink("About Us", "VerMas", "Home")
+    @Html.ActionLink("Sign Up", "Registrarse", "Backoffice")
+
 </body>
