@@ -27,5 +27,9 @@ namespace QEQC04.Controllers
         {
             return View();
         }
+        public ActionResult SubmitIniciarSesion()
+        {
+            return View();
+        }
     }
 }

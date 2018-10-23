@@ -8,15 +8,17 @@ namespace QEQC04.Controllers
 {
     public class HomeController : Controller
     {
+        public ActionResult Inicio()
+        {
+            return View("HOMEHOME");
+        }
         public ActionResult Index()
         {
             return View();
         }
 
         public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
-
+        {    
             return View();
         }
         public ActionResult Instrucciones()
