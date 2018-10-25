@@ -29,14 +29,14 @@ namespace QEQC04.Controllers
         public ActionResult SubmitRegister(string nombre, string usuario, string password)
         {
             int reg = BD.registerUsuario(nombre, usuario, password);
-
+            reg++;
             /*registerUsuario(nombre, usuario, contraseña);*/
 
             ViewBag.reg = reg;
-            if(reg > 1)
+            if(reg > 0)
             {
-                ViewBag.Message="Se ha registrado correctamente";
-                    }
+                ViewBag.Message = "Se ha registrado correctamente";
+            }
             else
             {
                 ViewBag.Message="No se ha registrado";
