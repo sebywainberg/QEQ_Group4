@@ -26,6 +26,10 @@ namespace QEQC04.Controllers
 
             return View();
         }
+        public ActionResult Volver()
+        {
+            return View("HOMEHOME");
+        }
 
     }
 

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using QEQC04.Models;
+using QEQg4.Models;
+
 
 
 namespace QEQC04.Controllers
@@ -27,12 +28,32 @@ namespace QEQC04.Controllers
         }
         public ActionResult SubmitRegister(string nombre, string usuario, string contraseña)
         {
-            registerUsuario(nombre, usuario, contraseña);
+            int reg = BD.registerUsuario(nombre, usuario, contraseña);
 
-            return View();
+            ViewBag.reg = reg;
+            if(reg > 0)
+            {
+                ViewBag.Message="Se ha registrado correctamente";
+                    }
+            else
+            {
+                ViewBag.Message="No se ha registrado";
+                
+            }
+            return View("AfterReg");
         }
         public ActionResult SubmitIniciarSesion(string usuario, string contraseña)
         {
+            bool Log = true; 
+                //BD.loginUsuario(usuario, contraseña);
+            if(Log == true)
+            {
+                ViewBag.Message = "Contraseña o Usuario Incorrecto";
+            }
+            else
+            {
+                return View("HOMEHOME");
+            }
 
             return View();
         }

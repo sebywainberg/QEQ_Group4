@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "AfterReg";
+}
+
+<h2>AfterReg</h2>
+@ViewBag.Message<br /> <br />
+@{
+   
+    if (ViewBag.reg > 0)
+    {
+        @Html.ActionLink("Volver a inicio", "Volver", "Home");
+    }
+
+}
+

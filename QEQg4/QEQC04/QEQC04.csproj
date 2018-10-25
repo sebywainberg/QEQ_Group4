@@ -200,6 +200,7 @@
     <Content Include="Views\Backoffice\IniciarSesion.cshtml" />
     <Content Include="Views\Backoffice\Register.cshtml" />
     <Content Include="Views\Home\HOMEHOME.cshtml" />
+    <Content Include="Views\Backoffice\AfterReg.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
