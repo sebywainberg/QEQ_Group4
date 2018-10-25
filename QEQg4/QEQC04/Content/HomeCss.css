@@ -1,19 +1,48 @@
-﻿.VerMás {
-    background-color: white;
-    color: black;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    text-shadow: 1px 1px violet, -1px -1px violet, 1px 1px violet, -1px -1px violet, 1px 1px violet, -1px -1px violet, 1px 1px violet, -1px -1px violet, 1px 1px violet,-1px -1px yellow;
-    margin-left: 100px;
+﻿body{
+
+    background: black;
+
+}
+
+
+.ImagenInicio {
+
+}
+
+.VerMás {
+
+    border-width: 0px;
+    color: white;
+    background-color: black;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black,-0.5px -0.5px black;
 }
 
 .qeqtit {
-   text-align: center;
+    border-width: 0px;
+    color: white;
+    background-color: black;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black,-0.5px -0.5px black;
+    
 }
 
 .Signs {
-    margin-left: 110px;
+    border-width: 0px;
+    color: white;
+    background-color: black;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black,-0.5px -0.5px black;
+}
+
+.BotonJugar {
+    border-width: 0px;
+    color: white;
+    background-color: black;
+    font-size: 25px;
+    font-weight: bold;
+    text-shadow: 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black, -0.5px -0.5px black, 0.5px 0.5px black,-0.5px -0.5px black;
 }

@@ -6755,3 +6755,33 @@ button.close {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+.ImagenInicio {
+}
+
+body {
+    background: red;
+}
+
+.VerMás {
+    background-color: white;
+    color: black;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    text-shadow: 1px 1px white, -1px -1px white, 1px 1px white, -1px -1px violet, 1px 1px white, -1px -1px white, 1px 1px white, -1px -1px white, 1px 1px white,-1px -1px white;
+    margin-left: 100px;
+}
+
+.qeqtit {
+    text-align: center;
+}
+
+.Signs {
+    margin-left: 110px;
+}
+
+.BotonJugar {
+}
