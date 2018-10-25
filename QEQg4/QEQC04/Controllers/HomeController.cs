@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
+
 namespace QEQC04.Controllers
 {
     public class HomeController : Controller
@@ -23,7 +24,6 @@ namespace QEQC04.Controllers
         }
         public ActionResult Instrucciones()
         {
-
             return View();
         }
 

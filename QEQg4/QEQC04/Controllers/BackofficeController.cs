@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using QEQC04.Models;
 
 
 namespace QEQC04.Controllers
@@ -27,7 +26,8 @@ namespace QEQC04.Controllers
         }
         public ActionResult SubmitRegister(string nombre, string usuario, string contraseña)
         {
-            registerUsuario(nombre, usuario, contraseña);
+
+            /*registerUsuario(nombre, usuario, contraseña);*/
 
             return View();
         }
