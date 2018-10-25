@@ -25,6 +25,7 @@ namespace QEQC04.Controllers
         {
             return View();
         }
+        [HttpPost]
         public ActionResult SubmitRegister(string nombre, string usuario, string password)
         {
             int reg = BD.registerUsuario(nombre, usuario, password);
@@ -32,7 +33,7 @@ namespace QEQC04.Controllers
             /*registerUsuario(nombre, usuario, contraseña);*/
 
             ViewBag.reg = reg;
-            if(reg > 0)
+            if(reg > 1)
             {
                 ViewBag.Message="Se ha registrado correctamente";
                     }

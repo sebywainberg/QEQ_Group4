@@ -5,10 +5,10 @@
 
 <h2>Register</h2>
 
-<form action="@Url.Action("SubmitRegister", "Backoffice")">
+<form action="@Url.Action("SubmitRegister", "Backoffice")" method="post">
 
     Nombre: <input type="text" name="nombre" /><br />
-    Usuario: <input type="text" user="usuario" /> <br />
+    Usuario: <input type="text" name="usuario" /> <br />
     Contraseña: <input type="password" name="password" /><br />
     <input type="submit" value="ingresar" /><br />
 

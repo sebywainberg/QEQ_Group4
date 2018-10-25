@@ -34,7 +34,7 @@ namespace QEQg4.Models
             desconectar(conex);
             return Devuelve;
         }
-        public static int registerUsuario(string Username, string password, string nombre)
+        public static int registerUsuario(string nombre, string Username, string password)
         {
             int puntos = 0;
             bool EsAdmin = false;
