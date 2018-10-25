@@ -3,11 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-<<<<<<< HEAD
 using QEQg4.Models;
-
-=======
->>>>>>> 30c68f61114c8e5b6746b8b8d47bd59bf1cfe620
 
 
 namespace QEQC04.Controllers
@@ -29,14 +25,11 @@ namespace QEQC04.Controllers
         {
             return View();
         }
-        public ActionResult SubmitRegister(string nombre, string usuario, string contraseña)
+        public ActionResult SubmitRegister(string nombre, string usuario, string password)
         {
-<<<<<<< HEAD
-            int reg = BD.registerUsuario(nombre, usuario, contraseña);
-=======
+            int reg = BD.registerUsuario(nombre, usuario, password);
 
             /*registerUsuario(nombre, usuario, contraseña);*/
->>>>>>> 30c68f61114c8e5b6746b8b8d47bd59bf1cfe620
 
             ViewBag.reg = reg;
             if(reg > 0)
@@ -50,10 +43,9 @@ namespace QEQC04.Controllers
             }
             return View("AfterReg");
         }
-        public ActionResult SubmitIniciarSesion(string usuario, string contraseña)
+        public ActionResult SubmitIniciarSesion(string usuario, string password)
         {
-            bool Log = true; 
-                //BD.loginUsuario(usuario, contraseña);
+            bool Log = BD.loginUsuario(usuario, password);
             if(Log == true)
             {
                 ViewBag.Message = "Contraseña o Usuario Incorrecto";

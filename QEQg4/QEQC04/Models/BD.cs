@@ -8,7 +8,7 @@ namespace QEQg4.Models
 {
     public static class BD
     {
-        public static string connectionString = "sever=10.128.8.16;Database=QEQC04;User ID=QEQC04;pwd=QEQC04";
+        public static string connectionString = "server=10.128.8.16;Database=QEQC04;User ID=QEQC04;pwd=QEQC04";
         private static SqlConnection conectar()
         {
             SqlConnection conex = new SqlConnection(connectionString);

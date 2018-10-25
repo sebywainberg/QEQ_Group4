@@ -162,7 +162,10 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\HomeCss.css" />
+    <Content Include="Content\IndexCss.css" />
+    <Content Include="Content\question-mark-lol-modo-diablo.png" />
     <Content Include="Content\quién-es-quién.jpg" />
+    <Content Include="Content\quién-es-quién.png" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

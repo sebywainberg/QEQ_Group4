@@ -1,21 +1,12 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<link href="~/Content/HomeCss.css" rel="stylesheet" />
 
-<head>
-    <title>"Quien es Quien? "</title>
-    <link href="~/Content/HomeCss.css" rel="stylesheet" />
-</head>
+<h1 class="qeqtit">Quien es Quien?</h1>
 
-<body background="">
-
-    <h1 class="qeqtit">Quien es Quien?</h1>
-
-    <p> <button class="BotonJugar"> Jugar </button> </p> 
-    
-    <p> @Html.ActionLink("Instrucciones", "Instrucciones", "Home", null, new { @class = "VerMás" }) </p>
-    <p> @Html.ActionLink("About Us", "About", "Home", null, new { @class = "VerMás" }) </p>
-    <p> @Html.ActionLink("Sign In", "IniciarSesion", "Backoffice", null, new { @class = "Signs" }) </p>
-    <p> @Html.ActionLink("Sign Up", "Register", "Backoffice", null, new { @class = "Signs" }) </p>   
-    
-</body>
+<div><a class="BotonJugar">Jugar</a></div>
+<div>@Html.ActionLink("Instrucciones", "Instrucciones", "Home", null, new { @class = "VerMás" })</div>
+<div>@Html.ActionLink("About Us", "About", "Home", null, new { @class = "VerMás" })</div>
+<div>@Html.ActionLink("Sign In", "IniciarSesion", "Backoffice", null, new { @class = "Signs" })</div>
+<div>@Html.ActionLink("Sign Up", "Register", "Backoffice", null, new { @class = "Signs" })</div>
