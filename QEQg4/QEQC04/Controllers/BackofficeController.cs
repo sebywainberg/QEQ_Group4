@@ -26,36 +26,53 @@ namespace QEQC04.Controllers
             return View();
         }
         [HttpPost]
-        public ActionResult SubmitRegister(string nombre, string usuario, string password)
+        public ActionResult SubmitRegister(usuario user)
         {
-            int reg = BD.registerUsuario(nombre, usuario, password);
-            reg++;
-            /*registerUsuario(nombre, usuario, contraseña);*/
-
-            ViewBag.reg = reg;
-            if(reg > 0)
+            if(ModelState.IsValid)
             {
-                ViewBag.Message = "Se ha registrado correctamente";
+                int reg = BD.registerUsuario(user);
+                reg++;
+                /*registerUsuario(nombre, usuario, contraseña);*/
+
+                ViewBag.reg = reg;
+                if (reg > 0)
+                {
+                    ViewBag.Message = "Se ha registrado correctamente";
+                }
+                else
+                {
+                    ViewBag.Message = "No se ha registrado";
+
+                }
             }
             else
             {
-                ViewBag.Message="No se ha registrado";
-                
+                return View("Register", user);
             }
             return View("AfterReg");
         }
-        public ActionResult SubmitIniciarSesion(string usuario, string password)
+        public ActionResult SubmitIniciarSesion(usuario user)
         {
-            bool Log = BD.loginUsuario(usuario, password);
-            if(Log == true)
+            if (ModelState.IsValidField("Username1") && (ModelState.IsValidField("Password1")))
             {
-                ViewBag.Message = "Contraseña o Usuario Incorrecto";
+                bool Log = BD.loginUsuario(user);
+                if (Log)
+                {
+                    return View("HOMEHOME");
+
+                }
+                else
+                {
+                    ViewBag.ErrorMessage = "Contraseña o Usuario Incorrecto";
+                    return View("IniciarSesion", user);
+                    
+                }
+               
             }
             else
             {
-                return View("HOMEHOME");
+                return View("IniciarSesion", user);
             }
-
             return View();
         }
     }

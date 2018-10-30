@@ -1,16 +1,17 @@
-﻿
+﻿@using QEQg4.Models;
+@using System.ComponentModel.DataAnnotations;
+@model usuario
 @{
     ViewBag.Title = "IniciarSesion";
 }
 
 <h2>Iniciar Sesion</h2>
 
-@ViewBag.Message
-<form action="@Url.Action("SubmitIniciarSesion")" method="get">
+@ViewBag.ErrorMessage<br />
+<form action="@Url.Action("SubmitIniciarSesion", "Backoffice")" method="post">
 
-    User: <input type="text" name="User">
-    <br>
-    Contraseña: <input type="password" name="Pwd">
+    Nombre de usuario: @Html.TextBoxFor(x => x.Username1) @Html.ValidationMessageFor(x => x.Username1)<br />
+    Password: @Html.PasswordFor(x => x.Password1) @Html.ValidationMessageFor(x => x.Password1)<br />
     <br>
     <input type="submit" value="Aceptar">
 

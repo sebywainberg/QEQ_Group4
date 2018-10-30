@@ -1,15 +1,18 @@
-﻿
+﻿@using QEQg4.Models;
+@using System.ComponentModel.DataAnnotations;
+@model usuario
 @{
     ViewBag.Title = "Register";
+
 }
 
 <h2>Register</h2>
 
 <form action="@Url.Action("SubmitRegister", "Backoffice")" method="post">
 
-    Nombre: <input type="text" name="nombre" /><br />
-    Usuario: <input type="text" name="usuario" /> <br />
-    Contraseña: <input type="password" name="password" /><br />
+    Nombre: @Html.TextBoxFor(x => x.Nombre1)  @Html.ValidationMessageFor(x => x.Nombre1)<br />
+    Nombre de usuario: @Html.TextBoxFor(x => x.Username1) @Html.ValidationMessageFor(x => x.Username1)<br />
+    Password: @Html.PasswordFor(x => x.Password1) @Html.ValidationMessageFor(x => x.Password1)<br />
     <input type="submit" value="ingresar" /><br />
 
 </form>

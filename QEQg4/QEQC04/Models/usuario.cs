@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace QEQg4.Models
 {
     public class usuario
     {
+        
         private int _id;
         private string _username;
         private string _password;
@@ -30,6 +32,7 @@ namespace QEQg4.Models
             }
         }
 
+        [Required(ErrorMessage ="El campo nombre de usuario es obligatorio*")]
         public string Username1
         {
             get
@@ -43,6 +46,7 @@ namespace QEQg4.Models
             }
         }
 
+        [Required(ErrorMessage = "el campo contraseña es obligatorio*")]
         public string Password1
         {
             get
@@ -56,6 +60,7 @@ namespace QEQg4.Models
             }
         }
 
+        [Required(ErrorMessage ="el campo nombre es obligatorio*")]
         public string Nombre1
         {
             get
