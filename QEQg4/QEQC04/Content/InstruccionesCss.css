@@ -22,7 +22,8 @@ p {
     font-size: 1.5em;
     font-weight: bold;
     -webkit-text-stroke: .03em black;
-    margin-left: 20px;
+    text-align: justify;
+    margin: 20px;
 }
 
 h1 {
@@ -42,4 +43,21 @@ h1 {
                  -6px 6px black,
                  -7px 7px black,
                  -8px 8px black;
+}
+
+a {
+    text-align: center;
+    margin-top: 0;
+    border-width: 0px;
+    color: gold;
+    font-size: 2.5em;
+    font-weight: bold;
+    -webkit-text-stroke: .03em black;
+    text-shadow: -1px 1px black, 
+                 -2px 2px black,
+                 -3px 3px black,
+                 -4px 4px black,
+                 -5px 5px black;
+    display: block;
+    text-align: center;
 }
