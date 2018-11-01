@@ -18,7 +18,6 @@ namespace QEQg4.Models
 
         public static bool loginUsuario(usuario user)
         {
-            bool Devuelve = false;
             SqlConnection conex = conectar();
             SqlCommand Consulta = conex.CreateCommand();
             Consulta.CommandText = "LoginUsuario";
@@ -26,19 +25,14 @@ namespace QEQg4.Models
             Consulta.Parameters.AddWithValue("@username", user.Username1);
             Consulta.Parameters.AddWithValue("@password", user.Password1);
             SqlDataReader dataReader = Consulta.ExecuteReader();
-            if (dataReader.Read())
-            {
-
-                Devuelve = Convert.ToBoolean(dataReader["x"]);
-            }
+            bool Devuelve = dataReader.Read();
             desconectar(conex);
             return Devuelve;
         }
-        public static int registerUsuario(usuario jb)
+        public static bool registerUsuario(usuario jb)
         {
-           jb.Puntos1 = 0;
-           jb.EsAdmin1 = false;
-            int Devuelve = 0;
+            jb.Puntos1 = 1000000;
+            jb.EsAdmin1 = false;
             SqlConnection conex = conectar();
             SqlCommand Consulta = conex.CreateCommand();
             Consulta.CommandText = "registerUsuario";
@@ -48,12 +42,7 @@ namespace QEQg4.Models
             Consulta.Parameters.AddWithValue("@nombre", jb.Nombre1);
             Consulta.Parameters.AddWithValue("@puntos", jb.Puntos1);
             Consulta.Parameters.AddWithValue("@esAdmin", jb.EsAdmin1);
-            SqlDataReader dataReader = Consulta.ExecuteReader();
-            if (dataReader.Read())
-            {
-
-                Devuelve = Convert.ToInt32(dataReader["x"]);
-            }
+            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
             desconectar(conex);
             return Devuelve;
         }

@@ -30,6 +30,10 @@ namespace QEQC04.Controllers
         {
             return View("HOMEHOME");
         }
+        public ActionResult HOMEHOME()
+        {
+            return View();
+        } 
 
     }
 

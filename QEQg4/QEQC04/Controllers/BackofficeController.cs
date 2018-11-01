@@ -30,12 +30,12 @@ namespace QEQC04.Controllers
         {
             if(ModelState.IsValid)
             {
-                int reg = BD.registerUsuario(user);
-                reg++;
+                bool reg = BD.registerUsuario(user);
+                
                 /*registerUsuario(nombre, usuario, contraseña);*/
 
                 ViewBag.reg = reg;
-                if (reg > 0)
+                if (reg == false)
                 {
                     ViewBag.Message = "Se ha registrado correctamente";
                 }
@@ -58,7 +58,7 @@ namespace QEQC04.Controllers
                 bool Log = BD.loginUsuario(user);
                 if (Log)
                 {
-                    return View("HOMEHOME");
+                    return RedirectToAction("HOMEHOME", "Home");
 
                 }
                 else
@@ -73,7 +73,8 @@ namespace QEQC04.Controllers
             {
                 return View("IniciarSesion", user);
             }
-            return View();
         }
+
     }
+     
 }
