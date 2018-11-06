@@ -1,15 +1,16 @@
 ﻿@{
-    ViewBag.Title = "About";
+    ViewBag.Title = "Más Sobre C04";
 }
-<h2>@ViewBag.Title.</h2>
-<h3>@ViewBag.Message</h3>
+
+<h1> Más Sobre C04 </h1>
+<link href="~/Content/About.css" rel="stylesheet" />
 
 <body>
     <p>
-        Somos una empresa informatica llamada C04. Ademas de este juego, tambien hicimos un reproductor
-        de musica, un juego del estilo de preguntados, entre otros.
-        Los invitamos a checkear nuestra pagina oficial (con numero para contrataciones).
+        Somos una empresa especializada en el desarrollo de software, principalmente en entornos de programación ASP.NET.
+        Trabajamos en el desarrollo de productos o en proyectos para la obtención de aplicaciones a medida de las necesidades de nuestros clientes.
+        Llevamos a cabo diferentes proyectos, tales como reproductores de musica y juegos de trivia, entre otros.
     </p>
-
 </body>
-<p> </p>
+
+<div><a href="@Url.Action("Inicio", "Home")" class="Volver">¡Listo!</a></div>

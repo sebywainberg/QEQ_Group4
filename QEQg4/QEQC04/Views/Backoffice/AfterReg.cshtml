@@ -4,10 +4,10 @@
 }
 
 <h2>AfterReg</h2>
-@ViewBag.Message<br /> <br />
+@ViewBag.Message
 @{
-   
-    if (ViewBag.reg > 0)
+
+    if (ViewBag.reg)
     {
         @Html.ActionLink("Volver a inicio", "Volver", "Home");
     }

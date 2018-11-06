@@ -4,19 +4,19 @@
 @{
     ViewBag.Title = "IniciarSesion";
 }
+<link href="~/Content/InciarSesion.css" rel="stylesheet" />
+<h1>Iniciar Sesion</h1>
 
-<h2>Iniciar Sesion</h2>
-
-@ViewBag.ErrorMessage<br />
+@ViewBag.ErrorMessage
 <form action="@Url.Action("SubmitIniciarSesion", "Backoffice")" method="post">
 
-    Nombre de usuario: @Html.TextBoxFor(x => x.Username1) @Html.ValidationMessageFor(x => x.Username1)<br />
-    Password: @Html.PasswordFor(x => x.Password1) @Html.ValidationMessageFor(x => x.Password1)<br />
-    <br>
-    <input type="submit" value="Aceptar">
+    <label>Nombre de usuario</label>
+    @Html.TextBoxFor(x => x.Username1, null, new { @class = "textbox" }) @Html.ValidationMessageFor(x => x.Username1)
+    <label>Password</label>
+    @Html.PasswordFor(x => x.Password1) @Html.ValidationMessageFor(x => x.Password1)
+    <input class="boton" type="submit" value="Aceptar">
 
 </form>
-
 
 
 

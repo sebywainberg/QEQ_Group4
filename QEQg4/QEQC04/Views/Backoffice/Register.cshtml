@@ -5,14 +5,17 @@
     ViewBag.Title = "Register";
 
 }
-
-<h2>Register</h2>
+<link href="~/Content/Register.css" rel="stylesheet" />
+<h1>Register</h1>
 
 <form action="@Url.Action("SubmitRegister", "Backoffice")" method="post">
 
-    Nombre: @Html.TextBoxFor(x => x.Nombre1)  @Html.ValidationMessageFor(x => x.Nombre1)<br />
-    Nombre de usuario: @Html.TextBoxFor(x => x.Username1) @Html.ValidationMessageFor(x => x.Username1)<br />
-    Password: @Html.PasswordFor(x => x.Password1) @Html.ValidationMessageFor(x => x.Password1)<br />
-    <input type="submit" value="ingresar" /><br />
+    <label>Nombre</label>
+    @Html.TextBoxFor(x => x.Nombre1) @Html.ValidationMessageFor(x => x.Nombre1)<br />
+    <label>Nombre de usuario </label>
+    @Html.TextBoxFor(x => x.Username1) @Html.ValidationMessageFor(x => x.Username1)<br />
+    <label>Password</label>
+    @Html.PasswordFor(x => x.Password1) @Html.ValidationMessageFor(x => x.Password1)<br />
+    <input class="boton" type="submit" value="ingresar" /><br />
 
 </form>

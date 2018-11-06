@@ -61,14 +61,14 @@ div:hover a {
         content: ">";
         margin-right: 1ch;
         display: inline-block;
-        animation: arrow-left .5s both, move-left .5s .5s infinite alternate;
+        animation: arrow-left .2s both, move-left .5s .5s infinite alternate;
     }
 
     div:hover a::after {
         content: "<";
         margin-left: 1ch;
         display: inline-block;
-        animation: arrow-right .5s both, move-right .5s .5s infinite alternate;
+        animation: arrow-right .2s both, move-right .5s .5s infinite alternate;
     }
 
 div:hover + * {
