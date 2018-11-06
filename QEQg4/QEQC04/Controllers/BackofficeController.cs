@@ -58,8 +58,14 @@ namespace QEQC04.Controllers
                 bool Log = BD.loginUsuario(user);
                 if (Log)
                 {
-                    return RedirectToAction("HOMEHOME", "Home");
-
+                    if (user.EsAdmin1)
+                    {
+                        return View("AfterLog", user);
+                    }
+                    else
+                    {
+                        return RedirectToAction("HOMEHOME", "Home");
+                    }
                 }
                 else
                 {

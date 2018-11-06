@@ -220,6 +220,7 @@
     <Content Include="Views\ABM\Caracteristicas.cshtml" />
     <Content Include="Views\ABM\Categorias.cshtml" />
     <Content Include="Views\ABM\Personajes.cshtml" />
+    <Content Include="Views\Backoffice\AfterLog.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

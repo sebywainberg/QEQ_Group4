@@ -34,6 +34,11 @@ namespace QEQC04.Controllers
         {
             return View();
         } 
+        public ActionResult Ranking()
+        {
+
+            return View();
+        }
 
     }
 

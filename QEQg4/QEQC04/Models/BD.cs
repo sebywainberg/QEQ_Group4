@@ -24,8 +24,12 @@ namespace QEQg4.Models
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             Consulta.Parameters.AddWithValue("@username", user.Username1);
             Consulta.Parameters.AddWithValue("@password", user.Password1);
+
             SqlDataReader dataReader = Consulta.ExecuteReader();
             bool Devuelve = dataReader.Read();
+            user.Nombre1 = dataReader["Nombre"].ToString();
+            user.EsAdmin1 = Convert.ToBoolean(dataReader["EsAdmin"]);
+            user.Puntos1 = Convert.ToInt32(dataReader["puntos"]);
             desconectar(conex);
             return Devuelve;
         }
@@ -50,5 +54,6 @@ namespace QEQg4.Models
         {
             conex.Close();
         }
+        public static List <usuario> 
     }
 }
