@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
-
+using QEQg4.Models;
 namespace QEQg4.Models
 {
     public static class BD
@@ -54,6 +54,28 @@ namespace QEQg4.Models
         {
             conex.Close();
         }
-        public static List <usuario> 
+        public static List<usuario> RankingJug()
+        {
+
+            List<usuario> listUs = new List<usuario>();
+            
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "RankingJug";
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                usuario a = new usuario();
+                a.Nombre1 = dataReader["Nombre"].ToString();
+                a.Username1 = dataReader["username"].ToString();
+                a.Puntos1 = Convert.ToInt32(dataReader["puntos"]);
+                a.Password1 = dataReader["contra"].ToString();
+                a.EsAdmin1 = Convert.ToBoolean(dataReader["EsAdmin"]);
+                a.Id1 = Convert.ToInt32(dataReader["id"]);
+                listUs.Add(a);
+            }
+            return listUs;
+        }
     }
 }

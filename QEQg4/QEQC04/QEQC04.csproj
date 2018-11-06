@@ -221,6 +221,7 @@
     <Content Include="Views\ABM\Categorias.cshtml" />
     <Content Include="Views\ABM\Personajes.cshtml" />
     <Content Include="Views\Backoffice\AfterLog.cshtml" />
+    <Content Include="Views\Home\Ranking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

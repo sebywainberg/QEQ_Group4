@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using QEQg4.Models;
 
 
 namespace QEQC04.Controllers
@@ -36,7 +37,9 @@ namespace QEQC04.Controllers
         } 
         public ActionResult Ranking()
         {
-
+            List<usuario> asd = new List<usuario>();
+                asd = BD.RankingJug();
+            ViewBag.ListaUsuarios = asd;
             return View();
         }
 
