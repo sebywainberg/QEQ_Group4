@@ -145,8 +145,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\BundleConfig2.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\FilterConfig2.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\RouteConfig2.cs" />
+    <Compile Include="Controllers\ABMController.cs" />
     <Compile Include="Controllers\BackofficeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -191,7 +195,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -209,6 +215,11 @@
     <Content Include="Views\Backoffice\Register.cshtml" />
     <Content Include="Views\Home\HOMEHOME.cshtml" />
     <Content Include="Views\Backoffice\AfterReg.cshtml" />
+    <Content Include="Views\ABM\Home.cshtml" />
+    <Content Include="Views\ABM\Usuarios.cshtml" />
+    <Content Include="Views\ABM\Caracteristicas.cshtml" />
+    <Content Include="Views\ABM\Categorias.cshtml" />
+    <Content Include="Views\ABM\Personajes.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
