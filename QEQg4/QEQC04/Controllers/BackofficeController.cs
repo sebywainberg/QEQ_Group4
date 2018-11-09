@@ -37,7 +37,8 @@ namespace QEQC04.Controllers
                 ViewBag.reg = reg;
                 if (reg == false)
                 {
-                    ViewBag.Message = "Se ha registrado correctamente";
+                   
+                    ViewBag.Message = "¡Se ha registrado correctamente!";
                 }
                 else
                 {

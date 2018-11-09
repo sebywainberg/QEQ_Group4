@@ -83,7 +83,7 @@ div:hover + * {
 .VerMás, .qeqtit, .Signs, .BotonJugar {
     border-width: 0px;
     color: gold;
-    font-size: 5em;
+    font-size: 4.25em;
     font-weight: bold;
     -webkit-text-stroke: .03em black;
     text-shadow:
