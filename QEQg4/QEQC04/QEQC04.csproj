@@ -222,6 +222,9 @@
     <Content Include="Views\ABM\Personajes.cshtml" />
     <Content Include="Views\Backoffice\AfterLog.cshtml" />
     <Content Include="Views\Home\Ranking.cshtml" />
+    <Content Include="Views\ABM\PerAlt.cshtml" />
+    <Content Include="Views\ABM\PerBaj.cshtml" />
+    <Content Include="Views\ABM\PerMod.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

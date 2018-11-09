@@ -33,6 +33,26 @@ namespace QEQC04.Controllers
         {
             return View();
         }
+        //tabla personajes
+        public ActionResult PerAlt()
+        {
+            return View();
+        }
+        public ActionResult PerBaj()
+        {
+            return View();
+        }
+        public ActionResult PerMod()
+        {
+            return View();
+        }
+        public ActionResult PerBajCheck()
+        {
+
+
+            return View();
+        }
+
 
 
 

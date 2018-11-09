@@ -54,6 +54,39 @@ namespace QEQg4.Models
         {
             conex.Close();
         }
+        //en la tabla caracteristicasxpersonaje
+        public static bool ListarxCategoria()
+        {
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "ListarxCat";
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+
+            return Devuelve;
+        }
+        //en la tabla personaje
+        public static bool ListarxCaracteristica()
+        {
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "ListarXCar";
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+
+            return Devuelve;
+        }
+        //en la tabla caracteristicasxpersonaje
+        public static bool ListarxPersonaje()
+        {
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "ListarxPersonaje";
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+
+            return Devuelve;
+        }
         public static List<usuario> RankingJug()
         {
 
