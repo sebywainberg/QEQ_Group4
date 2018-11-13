@@ -97,6 +97,11 @@ div:hover + * {
         -8px 8px black;
 }
 
+    .VerMás:active, .Signs:active, .BotonJugar:active {
+        transform: rotate(5deg) translate(-8px, 8px);
+        text-shadow: none;
+    }
+
 h1, p {
     text-align: center;
 }
