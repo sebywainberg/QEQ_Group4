@@ -61,13 +61,24 @@ namespace QEQC04.Controllers
                 ViewBag.Message = "No se ha podido eliminar, ya que hay registros en la tabla CaracteristicasxPersonaje con ese Personaje";
 
             }
-            return View("AfterBPer");
+            return View("Home");
         }
         public ActionResult CaracXPersonaje()
         {
             return View();
         }
-
+        public ActionResult SumbitAPer(Personaje a)
+        {
+             
+            bool esOk = BD.AltaPersonaje(a);
+            if (esOk == false)
+                ViewBag.Message ="No se pudo realizar la alta";
+            else
+            {
+                ViewBag.Message ="La alta se ha registrado correctamente";
+            }
+            return View("Home");
+        }
 
 
 

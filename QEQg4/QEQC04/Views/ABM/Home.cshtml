@@ -2,9 +2,14 @@
 
 <h2>ABM de tablas</h2>
 <link href="~/Content/ABMHomeCss.css" rel="stylesheet" />
+@ViewBag.Message
+<br />
 <div>
+
     @Html.ActionLink("Usuarios", "Usuarios", "ABM")
     @Html.ActionLink("Caracteristicas", "Caracteristicas", "ABM")
     @Html.ActionLink("Categorias", "Categorias", "ABM")
     @Html.ActionLink("Personajes", "Personajes", "ABM")
 </div>
+<br />
+@Html.ActionLink("Volver a inicio", "Volver", "Home")

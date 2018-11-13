@@ -4,7 +4,7 @@
 @{
     ViewBag.Title = "PerAlt";
 }
-<form action="@Url.Action("SubmitAPer", "ABM")" method="post">
+<form action="@Url.Action("Home", "ABM")" method="post">
 
     Nombre: @Html.TextBoxFor(x => x.Nombre1) @Html.ValidationMessageFor(x => x.Nombre1)<br />
     Sexo: @Html.TextBoxFor(x => x.Sexo1) @Html.ValidationMessageFor(x => x.Sexo1) <br />
