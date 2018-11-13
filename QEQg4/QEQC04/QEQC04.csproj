@@ -157,6 +157,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BD.cs" />
+    <Compile Include="Models\Personaje.cs" />
     <Compile Include="Models\usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -225,6 +226,8 @@
     <Content Include="Views\ABM\PerAlt.cshtml" />
     <Content Include="Views\ABM\PerBaj.cshtml" />
     <Content Include="Views\ABM\PerMod.cshtml" />
+    <Content Include="Views\ABM\AfterBPer.cshtml" />
+    <Content Include="Views\ABM\CaracXPersonaje.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,8 +1,9 @@
-﻿
+﻿@using QEQC04.Models;
+@using System.ComponentModel.DataAnnotations;
+@model Personaje
 
-
-<form method=post action="@Url.Action("PerBajCheck","ABM")">
-    Id: @Html.TextBoxFor(x => x.id) <br />
-
+<form action="@Url.Action("PerBajCheck","ABM")" method="post">
+    Id: @Html.TextBoxFor(x => x.Id1)  @Html.ValidationMessageFor(x => x.Id1)/> <br />
+    <input class="boton" type="submit" value="ingresar" /><br />
 
 </form>

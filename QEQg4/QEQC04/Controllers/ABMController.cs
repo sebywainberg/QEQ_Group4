@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using QEQC04.Models;
+using QEQg4.Models;
 
 namespace QEQC04.Controllers
 {
@@ -46,10 +48,23 @@ namespace QEQC04.Controllers
         {
             return View();
         }
-        public ActionResult PerBajCheck()
+        public ActionResult PerBajCheck(Personaje ronald)
         {
+            bool EsValid = BD.ListarxPersonaje(ronald.Id1);
+            if(EsValid == false)
+            {
+                bool SeBorro = BD.BajaPersonaje(ronald.Id1);
+                ViewBag.Message = "Se ha eliminado correctamente";
+            }
+            else
+            {
+                ViewBag.Message = "No se ha podido eliminar, ya que hay registros en la tabla CaracteristicasxPersonaje con ese Personaje";
 
-
+            }
+            return View("AfterBPer");
+        }
+        public ActionResult CaracXPersonaje()
+        {
             return View();
         }
 
