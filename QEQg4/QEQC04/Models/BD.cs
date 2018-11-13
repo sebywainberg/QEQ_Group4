@@ -93,9 +93,11 @@ namespace QEQg4.Models
         }
         public static bool AltaPersonaje (Personaje a)
         {
+            a.Id1 = 0;
             SqlConnection conexion = conectar();
             SqlCommand Consulta = conexion.CreateCommand();
             Consulta.CommandText = "Personajes_AM";
+            Consulta.Parameters.AddWithValue("@id", a.Id1);
             Consulta.Parameters.AddWithValue("@Nombre", a.Nombre1);
             Consulta.Parameters.AddWithValue("@Sexo", a.Sexo1);
             Consulta.Parameters.AddWithValue("@Categoria", a.Categoria1);

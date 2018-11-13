@@ -67,15 +67,20 @@ namespace QEQC04.Controllers
         {
             return View();
         }
+
+        [HttpPost]
         public ActionResult SumbitAPer(Personaje a)
         {
              
             bool esOk = BD.AltaPersonaje(a);
             if (esOk == false)
-                ViewBag.Message ="No se pudo realizar la alta";
+            {
+                ViewBag.Message = "No se pudo realizar la alta";
+                return View("PerAlt", a);
+            }
             else
             {
-                ViewBag.Message ="La alta se ha registrado correctamente";
+                ViewBag.Message = "La alta se ha registrado correctamente";
             }
             return View("Home");
         }
