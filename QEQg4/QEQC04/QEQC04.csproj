@@ -163,8 +163,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\ABMHomeCss.css" />
+    <Content Include="Content\ABMPersonajeCss.css" />
     <Content Include="Content\About.css" />
     <Content Include="Content\AfterReg.css" />
+    <Content Include="Content\BajaPersonajesCss.css" />
+    <Content Include="Content\AltaPersonajesCss.css" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />

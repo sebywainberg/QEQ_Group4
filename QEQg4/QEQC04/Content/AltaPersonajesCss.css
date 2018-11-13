@@ -1,0 +1,76 @@
+﻿body {
+    background: radial-gradient(yellow, orange 60%);
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+@keyframes rotar {
+    from {
+        transform: rotate(5deg) scale(1.2);
+    }
+
+    to {
+        transform: rotate(-5deg) scale(1.1);
+    }
+}
+
+h1 {
+    text-align: center;
+    margin-top: 0;
+    animation: rotar 3s infinite alternate ease-in-out;
+    border-width: 0px;
+    color: gold;
+    font-size: 4.5em;
+    font-weight: bold;
+    -webkit-text-stroke: .03em black;
+    text-shadow: -1px 1px black, -2px 2px black, -3px 3px black, -4px 4px black, -5px 5px black, -6px 6px black, -7px 7px black, -8px 8px black;
+}
+
+form {
+    background: radial-gradient(yellow, orange 60%);
+    border: solid 1em yellow;
+    box-shadow: 0px 0px 10px black;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+}
+
+label {
+    text-align: center;
+    margin: .5em 1em;
+    border-width: 0px;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    -webkit-text-stroke: .03em black;
+    margin: 20px;
+    display: block;
+}
+
+input {
+    margin: .5em 1.5em;
+    text-align: center;
+}
+
+.boton {
+    background: gold;
+    border: none;
+    padding: .2em;
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    font-weight: bold;
+    -webkit-text-stroke: .03em black;
+    box-shadow: -1px 1px black, -2px 2px black, -3px 3px black, -4px 4px black, -5px 5px black;
+    display: block;
+    text-align: center;
+}
+
+    .boton:active {
+        transform: translate(-3px, 3px);
+        box-shadow: -1px 1px black, -2px 2px black;
+    }

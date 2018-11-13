@@ -4,17 +4,12 @@
 @{
     ViewBag.Title = "PerAlt";
 }
-<form action="@Url.Action("Home", "ABM")" method="post">
-
-    Nombre: @Html.TextBoxFor(x => x.Nombre1) @Html.ValidationMessageFor(x => x.Nombre1)<br />
-    Sexo: @Html.TextBoxFor(x => x.Sexo1) @Html.ValidationMessageFor(x => x.Sexo1) <br />
-    Categoria: @Html.TextBoxFor(x => x.Categoria1)  @Html.ValidationMessageFor(x => x.Categoria1) <br />
-
+<link href="~/Content/AltaPersonajesCss.css" rel="stylesheet" />
+<form action="@Url.Action("SubmitAPer", "ABM")" method="post">
+    <label>
+        Nombre: @Html.TextBoxFor(x => x.Nombre1) @Html.ValidationMessageFor(x => x.Nombre1)
+        Sexo: @Html.TextBoxFor(x => x.Sexo1) @Html.ValidationMessageFor(x => x.Sexo1) 
+        Categoria: @Html.TextBoxFor(x => x.Categoria1)  @Html.ValidationMessageFor(x => x.Categoria1)
+    </label>
     <input class="boton" type="submit" value="ingresar" /><br />
-
-
 </form>
-
-
-<h2>PerAlt</h2>
-

@@ -1,9 +1,10 @@
 ﻿@using QEQC04.Models;
 @using System.ComponentModel.DataAnnotations;
 @model Personaje
-
+<link href="~/Content/BajaPersonajesCss.css" rel="stylesheet" />
 <form action="@Url.Action("PerBajCheck","ABM")" method="post">
-    Id: @Html.TextBoxFor(x => x.Id1)  @Html.ValidationMessageFor(x => x.Id1)/> <br />
-    <input class="boton" type="submit" value="ingresar" /><br />
+
+    <label> Id: @Html.TextBoxFor(x => x.Id1)  @Html.ValidationMessageFor(x => x.Id1) </label>
+    <input class="boton" type="submit" value="ingresar" />
 
 </form>
