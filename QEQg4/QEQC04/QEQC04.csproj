@@ -161,6 +161,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\ABMHomeCss.css" />
     <Content Include="Content\About.css" />
     <Content Include="Content\AfterReg.css" />
     <Content Include="Content\bootstrap-theme.css" />
@@ -171,6 +172,7 @@
     <Content Include="Content\InciarSesion.css" />
     <Content Include="Content\IndexCss.css" />
     <Content Include="Content\InstruccionesCss.css" />
+    <Content Include="Content\LogAdm.css" />
     <Content Include="Content\question-mark-lol-modo-diablo.png" />
     <Content Include="Content\quién-es-quién.jpg" />
     <Content Include="Content\quién-es-quién.png" />
