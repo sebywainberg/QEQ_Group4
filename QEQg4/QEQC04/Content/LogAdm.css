@@ -1,0 +1,35 @@
+﻿body {
+    background: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    background: radial-gradient(yellow, orange 60%);
+    overflow: hidden;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+div {
+    text-align: center;
+    margin-top: 0;
+    border-width: 0px;
+    color: gold;
+    font-size: 6em;
+    font-weight: bold;
+    -webkit-text-stroke: .03em black;
+}
+
+a:visited{
+    color: inherit;
+}
+
+a:-webkit-any-link{    
+    color: inherit;
+}
+
+
+
+

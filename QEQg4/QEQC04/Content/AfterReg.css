@@ -6,23 +6,21 @@
     overflow: hidden;
 }
 
-h {
+body{
+    display: block
+}
+
+h1 {
     text-align: center;
     margin-top: 0;
     animation: rotar 3s infinite alternate ease-in-out;
     border-width: 0px;
     color: gold;
-    font-size: 75em;
+    font-size: 9em;
     font-weight: bold;
     -webkit-text-stroke: .03em black;
-    text-shadow: -1px 1px black,
-                 -2px 2px black,
-                 -3px 3px black,
-                 -4px 4px black,
-                 -5px 5px black,
-                 -6px 6px black,
-                 -7px 7px black,
-                 -8px 8px black;
+    text-shadow: -1px 1px black, -2px 2px black, -3px 3px black, -4px 4px black, -5px 5px black, -6px 6px black, -7px 7px black, -8px 8px black;
+
 }
 
 
