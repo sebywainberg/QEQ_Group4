@@ -38,6 +38,8 @@ namespace QEQC04.Controllers
         //tabla personajes
         public ActionResult PerAlt()
         {
+            List<Categoria> Lista = BD.ListarCategorias();
+            ViewBag.ListaCategorias = Lista;
             return View();
         }
         public ActionResult PerBaj()
@@ -73,7 +75,7 @@ namespace QEQC04.Controllers
         {
              
             bool esOk = BD.AltaPersonaje(a);
-            if (esOk == false)
+            if (esOk == true)
             {
                 ViewBag.Message = "No se pudo realizar la alta";
                 return View("PerAlt", a);
