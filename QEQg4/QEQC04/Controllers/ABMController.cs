@@ -94,7 +94,7 @@ namespace QEQC04.Controllers
             if (esOk == true)
             {
                 ViewBag.Message = "No se pudo realizar la modificacion";
-                return View("PerAlt", f);
+                return View("PerMod", f);
             }
             else
             {
@@ -102,6 +102,64 @@ namespace QEQC04.Controllers
             }
             return View("Home");
         }
+        public ActionResult CatMod()
+        {
+            return View();
+        }
+        public ActionResult CatAlt()
+        {
+            return View();
+        }
+        public ActionResult CatBaj()
+        {
+            return View();
+
+        }
+        public ActionResult CatBajCheck(Categoria ronald)
+        {
+           
+            bool EsValid = BD.ListarxCategoria(ronald.IdCategoria);
+            if (EsValid == false)
+            {
+                bool SeBorro = BD.BajaCategoria(ronald.IdCategoria);
+                ViewBag.Message = "Se ha eliminado correctamente";
+            }
+            else
+            {
+                ViewBag.Message = "No se ha podido eliminar, ya que hay registros en la tabla Personaje con esa Caracteristica";
+
+            }
+            return View("Home");
+        }
+        public ActionResult SumbitACat(Categoria w)
+        {
+            bool esOk = BD.AltaCategoria(w);
+            if (esOk == true)
+            {
+                ViewBag.Message = "No se pudo realizar la alta";
+                return View("CatAlt", w);
+            }
+            else
+            {
+                ViewBag.Message = "La alta se ha realizado correctamente";
+            }
+            return View("Home");
+        }
+        public ActionResult SumbitMCat(Categoria f)
+        {
+            bool esOk = BD.ModCategoria(f);
+            if (esOk == true)
+            {
+                ViewBag.Message = "No se pudo realizar la modificacion";
+                return View("CatMod", f);
+            }
+            else
+            {
+                ViewBag.Message = "La modificacion se ha realizado correctamente";
+            }
+            return View("Home");
+        }
+
 
 
     }

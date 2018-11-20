@@ -233,6 +233,9 @@
     <Content Include="Views\ABM\PerBaj.cshtml" />
     <Content Include="Views\ABM\PerMod.cshtml" />
     <Content Include="Views\ABM\CaracXPersonaje.cshtml" />
+    <Content Include="Views\ABM\CatAlt.cshtml" />
+    <Content Include="Views\ABM\CatBaj.cshtml" />
+    <Content Include="Views\ABM\CatMod.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -55,7 +55,7 @@ namespace QEQg4.Models
         {
             conex.Close();
         }
-        //en la tabla caracteristicasxpersonaje
+        //en la tabla personaje
         public static bool ListarxCategoria(int id)
         {
             SqlConnection conexion = conectar();
@@ -87,7 +87,7 @@ namespace QEQg4.Models
             return Lista;
         }
 
-        //en la tabla personaje
+        //en la tabla caracteristicasxpersonaje
         public static bool ListarxCaracteristica( int id)
         {
             SqlConnection conexion = conectar();
@@ -171,5 +171,39 @@ namespace QEQg4.Models
             }
             return listUs;
         }
+        public static bool BajaCategoria(int id)
+        {
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "Categorias_B";
+            Consulta.Parameters.AddWithValue("@id", id);
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            return Devuelve;
+        }
+        public static bool AltaCategoria(Categoria x)
+        {
+            x.IdCategoria = -1;
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "Categorias_AM";
+            Consulta.Parameters.AddWithValue("@id", x.IdCategoria);
+            Consulta.Parameters.AddWithValue("@Nombre", x.Nombre);
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            return Devuelve;
+        }
+        public static bool ModCategoria(Categoria x)
+        {
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "Categorias_AM";
+            Consulta.Parameters.AddWithValue("@id", x.IdCategoria);
+            Consulta.Parameters.AddWithValue("@Nombre", x.Nombre);
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            return Devuelve;
+        }
     }
+   
 }

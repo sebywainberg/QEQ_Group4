@@ -1,0 +1,15 @@
+﻿@using QEQC04.Models
+@model Categoria
+@{
+    ViewBag.Title = "CatMod";
+}
+<form action="@Url.Action("SumbitMCat", "ABM")" method="post">
+    <label>
+        Id: @Html.TextBoxFor(x => x.IdCategoria)@Html.ValidationMessageFor(x => x.IdCategoria)
+
+        Nombre: @Html.TextBoxFor(x => x.Nombre) @Html.ValidationMessageFor(x => x.Nombre)
+
+    </label>
+    <input class="boton" type="submit" value="ingresar" /><br />
+</form>
+
