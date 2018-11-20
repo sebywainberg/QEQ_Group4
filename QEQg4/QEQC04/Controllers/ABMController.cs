@@ -38,6 +38,8 @@ namespace QEQC04.Controllers
         //tabla personajes
         public ActionResult PerAlt()
         {
+            List<Categoria> Lista = BD.ListarCategorias();
+            ViewBag.ListaCategorias = Lista;
             return View();
         }
         public ActionResult PerBaj()
@@ -46,6 +48,8 @@ namespace QEQC04.Controllers
         }
         public ActionResult PerMod()
         {
+            List<Categoria> Lista = BD.ListarCategorias();
+            ViewBag.ListaCategorias = Lista;
             return View();
         }
         public ActionResult PerBajCheck(Personaje ronald)
@@ -73,7 +77,7 @@ namespace QEQC04.Controllers
         {
              
             bool esOk = BD.AltaPersonaje(a);
-            if (esOk == false)
+            if (esOk == true)
             {
                 ViewBag.Message = "No se pudo realizar la alta";
                 return View("PerAlt", a);
@@ -84,7 +88,20 @@ namespace QEQC04.Controllers
             }
             return View("Home");
         }
-
+        public ActionResult SumbitMPer(Personaje f)
+        {
+            bool esOk = BD.ModPersonaje(f);
+            if (esOk == true)
+            {
+                ViewBag.Message = "No se pudo realizar la modificacion";
+                return View("PerAlt", f);
+            }
+            else
+            {
+                ViewBag.Message = "La modificacion se ha realizado correctamente";
+            }
+            return View("Home");
+        }
 
 
     }

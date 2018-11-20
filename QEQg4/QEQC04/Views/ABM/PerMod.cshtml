@@ -1,7 +1,21 @@
-﻿
+﻿@using QEQC04.Models
+@model Personaje
 @{
     ViewBag.Title = "PerMod";
 }
+<form action="@Url.Action("SumbitMPer", "ABM")" method="post">
+    <label>
+        Id: @Html.TextBoxFor(x => x.Id1)@Html.ValidationMessageFor(x => x.Id1)
 
-<h2>PerMod</h2>
+        Nombre: @Html.TextBoxFor(x => x.Nombre1) @Html.ValidationMessageFor(x => x.Nombre1)
+
+        @Html.RadioButtonFor(x => x.Sexo1, false) Hombre
+        @Html.RadioButtonFor(x => x.Sexo1, true) Mujer
+        @Html.ValidationMessageFor(x => x.Sexo1)
+        Categoria: @Html.DropDownListFor(x => x.Categoria1, new SelectList(ViewBag.ListaCategorias, "IdCategoria", "Nombre"))
+        @Html.ValidationMessageFor(x => x.Categoria1)
+    </label>
+    <input class="boton" type="submit" value="ingresar" /><br />
+</form>
+    <h2>PerMod</h2>
 

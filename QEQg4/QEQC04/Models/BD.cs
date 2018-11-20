@@ -67,6 +67,26 @@ namespace QEQg4.Models
 
             return Devuelve;
         }
+
+        public static List<Categoria> ListarCategorias()
+        {
+            List<Categoria> Lista = new List<Categoria>();
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "Categorias_L";
+            Consulta.Parameters.AddWithValue("@id", -1);
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Categoria a = new Categoria();
+                a.Nombre = dataReader["Nombre"].ToString();
+                a.IdCategoria = Convert.ToInt32(dataReader["id"]);
+                Lista.Add(a);
+            }
+            return Lista;
+        }
+
         //en la tabla personaje
         public static bool ListarxCaracteristica( int id)
         {
@@ -93,7 +113,7 @@ namespace QEQg4.Models
         }
         public static bool AltaPersonaje (Personaje a)
         {
-            a.Id1 = 0;
+            a.Id1 = -1;
             SqlConnection conexion = conectar();
             SqlCommand Consulta = conexion.CreateCommand();
             Consulta.CommandText = "Personajes_AM";
