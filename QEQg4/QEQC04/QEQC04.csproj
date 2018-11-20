@@ -180,6 +180,7 @@
     <Content Include="Content\question-mark-lol-modo-diablo.png" />
     <Content Include="Content\quién-es-quién.jpg" />
     <Content Include="Content\quién-es-quién.png" />
+    <Content Include="Content\RankingCss.css" />
     <Content Include="Content\Register.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
