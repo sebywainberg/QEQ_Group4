@@ -1,0 +1,16 @@
+﻿@using QEQC04.Models
+@model Caracteristica
+@{
+    ViewBag.Title = "CaracMod";
+}
+<form action="@Url.Action("SumbitMCarac", "ABM")" method="post">
+    <label>
+        Id: @Html.TextBoxFor(x => x.IdCarac)@Html.ValidationMessageFor(x => x.IdCarac)
+
+        Nombre: @Html.TextBoxFor(x => x.Nombre) @Html.ValidationMessageFor(x => x.Nombre)
+
+        Pregunta: @Html.TextBoxFor(x => x.PreguntaTexto) @Html.ValidationMessageFor(x => x.PreguntaTexto)
+
+    </label>
+    <input class="boton" type="submit" value="ingresar" /><br />
+</form>

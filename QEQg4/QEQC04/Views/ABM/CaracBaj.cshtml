@@ -1,0 +1,14 @@
+﻿@using QEQC04.Models;
+@using System.ComponentModel.DataAnnotations;
+@model Caracteristica
+@{
+    ViewBag.Title = "CaracBaj";
+}
+
+<form action="@Url.Action("CaracBajCheck","ABM")" method="post">
+
+    <label> Id: @Html.TextBoxFor(x => x.IdCarac)  @Html.ValidationMessageFor(x => x.IdCarac) </label>
+    <input class="boton" type="submit" value="ingresar" />
+
+</form>
+
