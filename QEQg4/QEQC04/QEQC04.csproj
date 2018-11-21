@@ -240,6 +240,7 @@
     <Content Include="Views\ABM\CaracAlt.cshtml" />
     <Content Include="Views\ABM\CaracBaj.cshtml" />
     <Content Include="Views\ABM\CaracMod.cshtml" />
+    <Content Include="Views\ABM\UserBaj.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

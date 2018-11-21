@@ -240,6 +240,15 @@ namespace QEQg4.Models
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
             return Devuelve;
         }
+        public static bool BajaUsusario(int id)
+        {
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "Users_B";
+            Consulta.Parameters.AddWithValue("@id", id);
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            return Devuelve;
+        }
     }
-   
 }

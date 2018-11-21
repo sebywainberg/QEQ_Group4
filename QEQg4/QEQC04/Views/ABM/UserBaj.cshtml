@@ -1,0 +1,12 @@
+﻿@using QEQg4.Models
+@model usuario
+@{
+    ViewBag.Title = "UserBaj";
+}
+
+<form action="@Url.Action("UserBajCheck","ABM")" method="post">
+
+    <label> Id: @Html.TextBoxFor(x => x.Id1)  @Html.ValidationMessageFor(x => x.Id1) </label>
+    <input class="boton" type="submit" value="ingresar" />
+
+</form>

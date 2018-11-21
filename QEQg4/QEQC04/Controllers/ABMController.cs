@@ -216,5 +216,21 @@ namespace QEQC04.Controllers
             }
             return View("Home");
         }
+        public ActionResult UserBaj()
+        {
+            return View();
+
+        }
+        public ActionResult UserBajCheck(usuario r)
+        {
+
+            bool EsValid = BD.ListarxCategoria(r.Id1);
+            if (EsValid == false)
+            {
+                bool SeBorro = BD.BajaCategoria(r.Id1);
+                ViewBag.Message = "Se ha eliminado correctamente";
+            }
+            return View("Home");
+        }
     }
 }
