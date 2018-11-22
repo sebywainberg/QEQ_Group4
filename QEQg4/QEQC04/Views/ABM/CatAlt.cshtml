@@ -3,6 +3,7 @@
 @{
     ViewBag.Title = "CatAlt";
 }
+<link href="~/Content/ABM.css" rel="stylesheet" />
 <form action="@Url.Action("SumbitACat", "ABM")" method="post">
     <label>
         Nombre: @Html.TextBoxFor(x => x.Nombre) @Html.ValidationMessageFor(x => x.Nombre)

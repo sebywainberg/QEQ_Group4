@@ -3,7 +3,7 @@
 @{
     ViewBag.Title = "UserBaj";
 }
-
+<link href="~/Content/ABMPersonajeCss.css" rel="stylesheet" />
 <form action="@Url.Action("UserBajCheck","ABM")" method="post">
 
     <label> Id: @Html.TextBoxFor(x => x.Id1)  @Html.ValidationMessageFor(x => x.Id1) </label>
