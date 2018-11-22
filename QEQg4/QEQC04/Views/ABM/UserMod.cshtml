@@ -1,0 +1,20 @@
+﻿@using QEQg4.Models
+@model usuario
+@{
+    ViewBag.Title = "UserMod";
+}
+@ViewBag.Message
+<form action="@Url.Action("SumbitMuser","ABM")" method="post">
+
+    <label>
+        Id: @Html.TextBoxFor(x => x.Id1)  @Html.ValidationMessageFor(x => x.Id1)
+        Username: @Html.TextBoxFor(x => x.Username1)  @Html.ValidationMessageFor(x => x.Username1)
+        Nombre:@Html.TextBoxFor(x => x.Nombre1)  @Html.ValidationMessageFor(x => x.Nombre1)
+        Password:@Html.PasswordFor(x => x.Password1) @Html.ValidationMessageFor(x=>x.Password1)
+        Puntos:@Html.TextBoxFor(x => x.Puntos1)  @Html.ValidationMessageFor(x => x.Puntos1)
+
+    </label>
+
+    <input class="boton" type="submit" value="ingresar" />
+
+</form>

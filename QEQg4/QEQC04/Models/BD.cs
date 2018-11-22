@@ -16,7 +16,10 @@ namespace QEQg4.Models
             conex.Open();
             return conex;
         }
-
+        public static void desconectar(SqlConnection conex)
+        {
+            conex.Close();
+        }
         public static bool loginUsuario(usuario user)
         {
             SqlConnection conex = conectar();
@@ -51,10 +54,7 @@ namespace QEQg4.Models
             desconectar(conex);
             return Devuelve;
         }
-        public static void desconectar(SqlConnection conex)
-        {
-            conex.Close();
-        }
+        
         //en la tabla personaje
         public static bool ListarxCategoria(int id)
         {
@@ -64,7 +64,7 @@ namespace QEQg4.Models
             Consulta.Parameters.AddWithValue("@idcat", id);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
-
+            desconectar(conexion);
             return Devuelve;
         }
 
@@ -84,6 +84,7 @@ namespace QEQg4.Models
                 a.IdCategoria = Convert.ToInt32(dataReader["id"]);
                 Lista.Add(a);
             }
+            desconectar(conexion);
             return Lista;
         }
 
@@ -96,7 +97,7 @@ namespace QEQg4.Models
             Consulta.Parameters.AddWithValue("@idcar", id);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
-
+            desconectar(conexion);
             return Devuelve;
         }
         //en la tabla caracteristicasxpersonaje
@@ -108,7 +109,7 @@ namespace QEQg4.Models
             Consulta.Parameters.AddWithValue("@idper", id);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
-
+            desconectar(conexion);
             return Devuelve;
         }
         public static bool AltaPersonaje(Personaje a)
@@ -123,6 +124,7 @@ namespace QEQg4.Models
             Consulta.Parameters.AddWithValue("@Categoria", a.Categoria1);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            desconectar(conexion);
             return Devuelve;
         }
         public static bool ModPersonaje(Personaje j)
@@ -136,6 +138,7 @@ namespace QEQg4.Models
             Consulta.Parameters.AddWithValue("@Categoria", j.Categoria1);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            desconectar(conexion);
             return Devuelve;
         }
         public static bool BajaPersonaje(int id)
@@ -146,6 +149,7 @@ namespace QEQg4.Models
             Consulta.Parameters.AddWithValue("@id", id);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            desconectar(conexion);
             return Devuelve;
         }
         public static List<usuario> RankingJug()
@@ -169,6 +173,7 @@ namespace QEQg4.Models
                 a.Id1 = Convert.ToInt32(dataReader["id"]);
                 listUs.Add(a);
             }
+            desconectar(conexion);
             return listUs;
         }
         public static bool BajaCategoria(int id)
@@ -179,6 +184,7 @@ namespace QEQg4.Models
             Consulta.Parameters.AddWithValue("@id", id);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            desconectar(conexion);
             return Devuelve;
         }
         public static bool AltaCategoria(Categoria x)
@@ -191,6 +197,7 @@ namespace QEQg4.Models
             Consulta.Parameters.AddWithValue("@Nombre", x.Nombre);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            desconectar(conexion);
             return Devuelve;
         }
         public static bool ModCategoria(Categoria x)
@@ -202,6 +209,7 @@ namespace QEQg4.Models
             Consulta.Parameters.AddWithValue("@Nombre", x.Nombre);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            desconectar(conexion);
             return Devuelve;
         }
 
@@ -216,6 +224,7 @@ namespace QEQg4.Models
             Consulta.Parameters.AddWithValue("@texto", j.PreguntaTexto);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            desconectar(conexion);
             return Devuelve;
         }
         public static bool BajaCaracteristica(int id)
@@ -226,6 +235,7 @@ namespace QEQg4.Models
             Consulta.Parameters.AddWithValue("@id", id);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            desconectar(conexion);
             return Devuelve;
         }
         public static bool ModCaracteristica(Caracteristica x)
@@ -238,16 +248,49 @@ namespace QEQg4.Models
             Consulta.Parameters.AddWithValue("@texto", x.PreguntaTexto);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            desconectar(conexion);
             return Devuelve;
         }
-        public static bool BajaUsusario(int id)
+
+        public static bool ListarxUsuario(int Id1)
+        {
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "Users_L";
+            Consulta.Parameters.AddWithValue("@id", Id1);
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+
+
+            bool Devuelve = Consulta.ExecuteScalar() == null;
+            desconectar(conexion);
+            return Devuelve;
+        }
+
+        public static bool BajaUsuario(int Id1)
         {
             SqlConnection conexion = conectar();
             SqlCommand Consulta = conexion.CreateCommand();
             Consulta.CommandText = "Users_B";
-            Consulta.Parameters.AddWithValue("@id", id);
+            Consulta.Parameters.AddWithValue("@id", Id1);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            desconectar(conexion);
+            return Devuelve;
+        }
+        public static bool ModUsuario(usuario x)
+        {
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "Users_M";
+            Consulta.Parameters.AddWithValue("@id", x.Id1);
+            Consulta.Parameters.AddWithValue("@username", x.Username1);
+            Consulta.Parameters.AddWithValue("@nombre", x.Nombre1);
+            Consulta.Parameters.AddWithValue("@password", x.Password1);
+            Consulta.Parameters.AddWithValue("@puntos", x.Puntos1);
+            Consulta.Parameters.AddWithValue("@EsAdmin", 0);
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            desconectar(conexion);
             return Devuelve;
         }
     }

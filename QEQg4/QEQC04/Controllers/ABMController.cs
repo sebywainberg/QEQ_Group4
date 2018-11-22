@@ -221,14 +221,39 @@ namespace QEQC04.Controllers
             return View();
 
         }
+        public ActionResult UserMod()
+        {
+            return View();
+        }
         public ActionResult UserBajCheck(usuario r)
         {
 
-            bool EsValid = BD.ListarxCategoria(r.Id1);
-            if (EsValid == false)
+            bool EsValid = BD.ListarxUsuario(r.Id1);
+            if (EsValid == true)
             {
-                bool SeBorro = BD.BajaCategoria(r.Id1);
-                ViewBag.Message = "Se ha eliminado correctamente";
+                bool SeBorro = BD.BajaUsuario(r.Id1);
+                if (SeBorro == true)
+                {
+                    ViewBag.Message = "Se ha eliminado correctamente";
+                }
+                else
+                {
+                    ViewBag.Message = "No se ha podido eliminar dicho usuario";
+                }
+            }
+            return View("Home");
+        }
+        public ActionResult SumbitMuser(usuario d)
+        {
+            bool esOk = BD.ModUsuario(d);
+            if (esOk == true)
+            {
+                ViewBag.Message = "No se pudo realizar la modificacion";
+                return View("UserMod", d);
+            }
+            else
+            {
+                ViewBag.Message = "La modificacion se ha realizado correctamente";
             }
             return View("Home");
         }
