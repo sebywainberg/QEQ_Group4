@@ -3,6 +3,8 @@
 @{
     ViewBag.Title = "PerMod";
 }
+
+<link href="~/Content/ModPersonajes.css" rel="stylesheet" />
 <form action="@Url.Action("SumbitMPer", "ABM")" method="post">
     <label>
         Id: @Html.TextBoxFor(x => x.Id1)@Html.ValidationMessageFor(x => x.Id1)
@@ -17,5 +19,4 @@
     </label>
     <input class="boton" type="submit" value="ingresar" /><br />
 </form>
-    <h2>PerMod</h2>
 

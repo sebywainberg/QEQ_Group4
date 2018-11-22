@@ -1,7 +1,7 @@
 ﻿@using QEQC04.Models;
 @using System.ComponentModel.DataAnnotations;
 @model Categoria
-
+<link href="~/Content/ABM.css" rel="stylesheet" />
 <form action="@Url.Action("CatBajCheck","ABM")" method="post">
 
     <label> Id: @Html.TextBoxFor(x => x.IdCategoria)  @Html.ValidationMessageFor(x => x.IdCategoria) </label>

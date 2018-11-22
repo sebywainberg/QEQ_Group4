@@ -1,0 +1,25 @@
+﻿body {
+    background: black;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-align: center;
+    background: radial-gradient(yellow, orange 60%);
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    border: 2px solid black;
+    padding: 8px;
+    margin-bottom: 7px;
+    background: orange 30%;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    grid-gap: 1px;
+}
+
+li:hover {
+        background-color: yellow;
+} 

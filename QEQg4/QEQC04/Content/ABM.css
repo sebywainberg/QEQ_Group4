@@ -36,7 +36,7 @@ form {
     box-shadow: 0px 0px 10px black;
     display: flex;
     flex-direction: column;
-    padding: 1.5em;
+    padding: 2.5em;
 }
 
 label {
@@ -74,3 +74,9 @@ input {
         transform: translate(-3px, 3px);
         box-shadow: -1px 1px black, -2px 2px black;
     }
+
+div{
+
+
+
+}

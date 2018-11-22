@@ -1,19 +1,13 @@
 ﻿@using QEQg4.Models;
+<link href="~/Content/RankingCss.css" rel="stylesheet" />
 
-
-<ul>
-    @{
-       
+    @{      
         foreach (usuario u in ViewBag.ListaUsuarios)
         {
-
     <li>
         @u.Puntos1
         @u.Nombre1
         @u.Username1
-
-
     </li>
         }
     }
-</ul>

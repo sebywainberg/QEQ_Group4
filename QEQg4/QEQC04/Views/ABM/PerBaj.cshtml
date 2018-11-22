@@ -1,7 +1,7 @@
 ﻿@using QEQC04.Models;
 @using System.ComponentModel.DataAnnotations;
 @model Personaje
-<link href="~/Content/BajaPersonajesCss.css" rel="stylesheet" />
+<link href="~/Content/ABM.css" rel="stylesheet" />
 <form action="@Url.Action("PerBajCheck","ABM")" method="post">
 
     <label> Id: @Html.TextBoxFor(x => x.Id1)  @Html.ValidationMessageFor(x => x.Id1) </label>
