@@ -18,7 +18,7 @@ namespace QEQg4.Models
 
 
 
-
+        [Required(ErrorMessage = "El campo id es obligatorio*")]
         public int Id1
         {
             get

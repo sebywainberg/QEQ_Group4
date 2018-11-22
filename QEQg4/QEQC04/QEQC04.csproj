@@ -157,6 +157,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\BD.cs" />
+    <Compile Include="Models\Caracteristica.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Personaje.cs" />
     <Compile Include="Models\usuario.cs" />
@@ -234,6 +235,13 @@
     <Content Include="Views\ABM\PerBaj.cshtml" />
     <Content Include="Views\ABM\PerMod.cshtml" />
     <Content Include="Views\ABM\CaracXPersonaje.cshtml" />
+    <Content Include="Views\ABM\CatAlt.cshtml" />
+    <Content Include="Views\ABM\CatBaj.cshtml" />
+    <Content Include="Views\ABM\CatMod.cshtml" />
+    <Content Include="Views\ABM\CaracAlt.cshtml" />
+    <Content Include="Views\ABM\CaracBaj.cshtml" />
+    <Content Include="Views\ABM\CaracMod.cshtml" />
+    <Content Include="Views\ABM\UserBaj.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
