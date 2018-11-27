@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using QEQg4.Models;
+using QEQC04.Models;
 
 
 namespace QEQC04.Controllers

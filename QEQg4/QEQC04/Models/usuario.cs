@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
-namespace QEQg4.Models
+namespace QEQC04.Models
 {
     public class usuario
     {

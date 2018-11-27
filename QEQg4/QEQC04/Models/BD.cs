@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.SqlClient;
-using QEQg4.Models;
 using QEQC04.Models;
-namespace QEQg4.Models
+namespace QEQC04.Models
 {
     public static class BD
     {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using QEQg4.Models;
+using QEQC04.Models;
 
 
 namespace QEQC04.Controllers
@@ -15,8 +15,11 @@ namespace QEQC04.Controllers
         {
             return View();
         }
-
-
+        public ActionResult CerrarSesion()
+        {
+            Session["Usuario"] = null;
+            return RedirectToAction("HOMEHOME","Home");
+        }
         public ActionResult IniciarSesion()
         {
             return View();
@@ -37,7 +40,7 @@ namespace QEQC04.Controllers
                 ViewBag.reg = reg;
                 if (reg == false)
                 {
-                   
+                    Session["Usuario"] = user;
                     ViewBag.Message = "¡Se ha registrado correctamente!";
                 }
                 else
@@ -59,6 +62,7 @@ namespace QEQC04.Controllers
                 bool Log = BD.loginUsuario(user);
                 if (Log)
                 {
+                    Session["Usuario"] = user;
                     if (user.EsAdmin1)
                     {
                         return View("AfterLog", user);

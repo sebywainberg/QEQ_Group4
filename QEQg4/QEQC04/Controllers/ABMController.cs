@@ -4,7 +4,6 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using QEQC04.Models;
-using QEQg4.Models;
 
 namespace QEQC04.Controllers
 {
@@ -38,19 +37,44 @@ namespace QEQC04.Controllers
         //tabla personajes
         public ActionResult PerAlt()
         {
-            List<Categoria> Lista = BD.ListarCategorias();
-            ViewBag.ListaCategorias = Lista;
-            return View();
+            usuario abc = Session["Usuario"] as usuario;
+            if (abc != null && abc.EsAdmin1 == true)
+            {
+                List<Categoria> Lista = BD.ListarCategorias();
+                ViewBag.ListaCategorias = Lista;
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("IniciarSesion", "Backoffice");
+            }
         }
         public ActionResult PerBaj()
         {
-            return View();
+            usuario abc = Session["Usuario"] as usuario;
+            if (abc != null && abc.EsAdmin1 == true)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("IniciarSesion", "Backoffice");
+            }
         }
         public ActionResult PerMod()
         {
-            List<Categoria> Lista = BD.ListarCategorias();
-            ViewBag.ListaCategorias = Lista;
-            return View();
+            usuario abc = Session["Usuario"] as usuario;
+            if (abc.EsAdmin1 == true)
+            {
+                List<Categoria> Lista = BD.ListarCategorias();
+                ViewBag.ListaCategorias = Lista;
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("IniciarSesion", "Backoffice");
+            }
+
         }
         public ActionResult PerBajCheck(Personaje ronald)
         {
@@ -69,7 +93,15 @@ namespace QEQC04.Controllers
         }
         public ActionResult CaracXPersonaje()
         {
-            return View();
+            usuario abc = Session["Usuario"] as usuario;
+            if (abc != null && abc.EsAdmin1 == true)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("IniciarSesion", "Backoffice");
+            }
         }
 
         [HttpPost]
@@ -104,15 +136,39 @@ namespace QEQC04.Controllers
         }
         public ActionResult CatMod()
         {
-            return View();
+            usuario abc = Session["Usuario"] as usuario;
+            if (abc != null && abc.EsAdmin1 == true)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("IniciarSesion", "Backoffice");
+            }
         }
         public ActionResult CatAlt()
         {
-            return View();
+            usuario abc = Session["Usuario"] as usuario;
+            if (abc != null && abc.EsAdmin1 == true)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("IniciarSesion", "Backoffice");
+            }
         }
         public ActionResult CatBaj()
         {
-            return View();
+            usuario abc = Session["Usuario"] as usuario;
+            if (abc != null && abc.EsAdmin1 == true)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("IniciarSesion", "Backoffice");
+            }
 
         }
         public ActionResult CatBajCheck(Categoria ronald)
@@ -161,16 +217,39 @@ namespace QEQC04.Controllers
         }
         public ActionResult CaracMod()
         {
-            return View();
+            usuario abc = Session["Usuario"] as usuario;
+            if (abc != null && abc.EsAdmin1 == true)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("IniciarSesion", "Backoffice");
+            }
         }
         public ActionResult CaracAlt()
         {
-            return View();
+            usuario abc = Session["Usuario"] as usuario;
+            if (abc != null && abc.EsAdmin1 == true)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("IniciarSesion", "Backoffice");
+            }
         }
         public ActionResult CaracBaj()
         {
-            return View();
-
+            usuario abc = Session["Usuario"] as usuario;
+            if (abc != null && abc.EsAdmin1 == true)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("IniciarSesion", "Backoffice");
+            }
         }
         public ActionResult SumbitACarac(Caracteristica m)
         {
@@ -218,12 +297,27 @@ namespace QEQC04.Controllers
         }
         public ActionResult UserBaj()
         {
-            return View();
-
+            usuario abc = Session["Usuario"] as usuario;
+            if (abc != null && abc.EsAdmin1 == true)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("IniciarSesion", "Backoffice");
+            }
         }
         public ActionResult UserMod()
         {
-            return View();
+            usuario abc = Session["Usuario"] as usuario;
+            if (abc != null && abc.EsAdmin1 == true)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("IniciarSesion", "Backoffice");
+            }
         }
         public ActionResult UserBajCheck(usuario r)
         {
