@@ -4,6 +4,7 @@
     ViewBag.Title = "UserMod";
 }
 @ViewBag.Message
+<link href="~/Content/ABM.css" rel="stylesheet" />
 <form action="@Url.Action("SumbitMuser","ABM")" method="post">
 
     <label>
@@ -11,6 +12,7 @@
         Username: @Html.TextBoxFor(x => x.Username1)  @Html.ValidationMessageFor(x => x.Username1)
         Nombre:@Html.TextBoxFor(x => x.Nombre1)  @Html.ValidationMessageFor(x => x.Nombre1)
         Password:@Html.PasswordFor(x => x.Password1) @Html.ValidationMessageFor(x=>x.Password1)
+        <br />
         Puntos:@Html.TextBoxFor(x => x.Puntos1)  @Html.ValidationMessageFor(x => x.Puntos1)
 
     </label>
