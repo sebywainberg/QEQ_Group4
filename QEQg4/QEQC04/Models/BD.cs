@@ -100,16 +100,24 @@ namespace QEQC04.Models
             return Devuelve;
         }
         //en la tabla caracteristicasxpersonaje
-        public static bool ListarxPersonaje(int id)
+        public static List<Personaje> ListarxPersonaje(int id)
         {
+            List<Personaje> listpapa = new List<Personaje>();
             SqlConnection conexion = conectar();
             SqlCommand Consulta = conexion.CreateCommand();
             Consulta.CommandText = "ListarxPersonaje";
             Consulta.Parameters.AddWithValue("@idper", id);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Personaje a = new Personaje();
+                a.Nombre1 = dataReader["Nombre"].ToString();
+                a.Id1 = Convert.ToInt32(dataReader["id"]);
+                listpapa.Add(a);
+            }
             desconectar(conexion);
-            return Devuelve;
+            return listpapa;
         }
         public static bool AltaPersonaje(Personaje a)
         {
