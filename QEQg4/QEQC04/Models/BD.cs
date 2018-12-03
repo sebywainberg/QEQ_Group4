@@ -53,7 +53,7 @@ namespace QEQC04.Models
             desconectar(conex);
             return Devuelve;
         }
-        
+
         //en la tabla personaje
         public static bool ListarxCategoria(int id)
         {
@@ -100,24 +100,16 @@ namespace QEQC04.Models
             return Devuelve;
         }
         //en la tabla caracteristicasxpersonaje
-        public static List<Personaje> ListarxPersonaje(int id)
+        public static bool ListarxPersonaje(int id)
         {
-            List<Personaje> listpapa = new List<Personaje>();
             SqlConnection conexion = conectar();
             SqlCommand Consulta = conexion.CreateCommand();
             Consulta.CommandText = "ListarxPersonaje";
             Consulta.Parameters.AddWithValue("@idper", id);
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
-            SqlDataReader dataReader = Consulta.ExecuteReader();
-            while (dataReader.Read())
-            {
-                Personaje a = new Personaje();
-                a.Nombre1 = dataReader["Nombre"].ToString();
-                a.Id1 = Convert.ToInt32(dataReader["id"]);
-                listpapa.Add(a);
-            }
+            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
             desconectar(conexion);
-            return listpapa;
+            return Devuelve;
         }
         public static bool AltaPersonaje(Personaje a)
         {
@@ -299,6 +291,47 @@ namespace QEQC04.Models
             bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
             desconectar(conexion);
             return Devuelve;
+        }
+        public static List<Personaje> ListarxPersonaje2(int id)
+        {
+            List<Personaje> listpapa = new List<Personaje>();
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "ListarxPersonaje";
+            Consulta.Parameters.AddWithValue("@idper", id);
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Personaje a = new Personaje();
+                Caracteristica b = new Caracteristica();
+                a.Id1 = Convert.ToInt32(dataReader["Personaje"]);
+                b.IdCarac = Convert.ToInt32(dataReader["IdCaracteristica"]);
+                listpapa.Add(a);
+            }
+            desconectar(conexion);
+            return listpapa;
+
+        }
+        public static List<Caracteristica> ListarxCaracteristica2(int id)
+        {
+            List<Caracteristica> papa = new List<Caracteristica>();
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "ListarXCar";
+            Consulta.Parameters.AddWithValue("@idcar", id);
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+               
+                Caracteristica b = new Caracteristica();
+                b.IdCarac = Convert.ToInt32(dataReader["IdCaracteristica"]);
+                papa.Add(b);
+            }
+            desconectar(conexion);
+            return papa;
+
         }
     }
 }

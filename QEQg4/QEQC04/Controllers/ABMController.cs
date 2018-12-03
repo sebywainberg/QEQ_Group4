@@ -91,7 +91,7 @@ namespace QEQC04.Controllers
             }
             return View("Home");
         }
-        public ActionResult CaracXPersonaje()
+       /* public ActionResult CaracXPersonaje()
         {
             usuario abc = Session["Usuario"] as usuario;
             if (abc != null && abc.EsAdmin1 == true)
@@ -102,7 +102,7 @@ namespace QEQC04.Controllers
             {
                 return RedirectToAction("IniciarSesion", "Backoffice");
             }
-        }
+        }*/
 
         [HttpPost]
         public ActionResult SumbitAPer(Personaje a)
@@ -351,12 +351,14 @@ namespace QEQC04.Controllers
             }
             return View("Home");
         }
-        public ActionResult CaracXPersonaje(int id)
+        public ActionResult CaracXPersonaje(int id = -1)
         {
-                id = -1;
+                
                 List<Personaje> ab = new List<Personaje>();
-                ab = BD.ListarxPersonaje(id);
-                ViewBag.ListarxPersonaje = ab;
+                List<Caracteristica> ad = new List<Caracteristica>();
+            ab = BD.ListarxPersonaje2(id);
+            ad = BD.ListarxCaracteristica2(id);
+                ViewBag.ListarxPersonaje2 = ab;
                 return View();
         }
     }

@@ -1,7 +1,19 @@
-﻿<link href="~/Content/ABM.css" rel="stylesheet" />
+﻿@using QEQC04.Models;
+<link href="~/Content/ABM.css" rel="stylesheet" />
 @{
     ViewBag.Title = "CaracXPersonaje";
+    foreach (Personaje u in ViewBag.ListarxPersonaje2)
+    {
+        <li>
+            @u.Id1
+        </li>
+    }
+    foreach (Caracteristica a in ViewBag.ListarxCaracteristica2)
+    {
+        <li>
+            @a.IdCarac
+        </li>
+    }
 }
 
-<h2>CaracXPersonaje</h2>
 
