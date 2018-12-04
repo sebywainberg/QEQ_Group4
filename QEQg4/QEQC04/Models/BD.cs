@@ -21,18 +21,27 @@ namespace QEQC04.Models
         }
         public static bool loginUsuario(usuario user)
         {
+            bool Devuelve = true;
             SqlConnection conex = conectar();
             SqlCommand Consulta = conex.CreateCommand();
             Consulta.CommandText = "LoginUsuario";
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             Consulta.Parameters.AddWithValue("@username", user.Username1);
             Consulta.Parameters.AddWithValue("@password", user.Password1);
+            
 
             SqlDataReader dataReader = Consulta.ExecuteReader();
-            user.Nombre1 = dataReader["Nombre"].ToString();
-            user.EsAdmin1 = Convert.ToBoolean(dataReader["EsAdmin"]);
-            user.Puntos1 = Convert.ToInt32(dataReader["puntos"]);
-            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            if (dataReader.Read())
+            {
+                Devuelve = false;
+                user.Nombre1 = dataReader["Nombre"].ToString();
+                user.EsAdmin1 = Convert.ToBoolean(dataReader["EsAdmin"]);
+                user.Puntos1 = Convert.ToInt32(dataReader["puntos"]);
+            }
+            else
+            {
+               return Devuelve;
+            }
             desconectar(conex);
 
             return Devuelve;
