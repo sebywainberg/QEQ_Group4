@@ -60,7 +60,7 @@ namespace QEQC04.Controllers
             if (ModelState.IsValidField("Username1") && (ModelState.IsValidField("Password1")))
             {
                 bool Log = BD.loginUsuario(user);
-                if (Log)
+                if (Log != true)
                 {
                     Session["Usuario"] = user;
                     if (user.EsAdmin1)

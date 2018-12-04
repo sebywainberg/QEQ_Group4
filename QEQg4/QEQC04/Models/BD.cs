@@ -29,11 +29,12 @@ namespace QEQC04.Models
             Consulta.Parameters.AddWithValue("@password", user.Password1);
 
             SqlDataReader dataReader = Consulta.ExecuteReader();
-            bool Devuelve = dataReader.Read();
             user.Nombre1 = dataReader["Nombre"].ToString();
             user.EsAdmin1 = Convert.ToBoolean(dataReader["EsAdmin"]);
             user.Puntos1 = Convert.ToInt32(dataReader["puntos"]);
+            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
             desconectar(conex);
+
             return Devuelve;
         }
         public static bool registerUsuario(usuario jb)
