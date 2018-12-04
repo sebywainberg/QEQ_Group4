@@ -359,5 +359,25 @@ namespace QEQC04.Controllers
                 ViewBag.ListarxPersonaje2 = ab;
                 return View();
         }
+
+        
+        public ActionResult Carac1(int Id)
+        {
+            List<Caracteristica> ala = new List<Caracteristica>();
+            ala = BD.ListarxCaracteristica2();
+            ViewBag.ListarxCaracteristica2 = ala;
+            ViewBag.Iddd = Id;
+            return View();
+        }
+        public ActionResult SumbitCxP(int idper, string[] caracteristicas)
+        {
+            BD.bajaCxP(idper);
+            foreach(string a in caracteristicas)
+            {
+                BD.AltaCxP(idper, Convert.ToInt32(a));
+            }
+
+            return RedirectToAction("Home");
+        }
     }
 }

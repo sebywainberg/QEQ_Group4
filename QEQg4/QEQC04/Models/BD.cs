@@ -310,29 +310,63 @@ namespace QEQC04.Models
             Consulta.CommandText = "ListarxPersonaje2";
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                Personaje juancarlos = new Personaje();
+                juancarlos.Id1 = Convert.ToInt32(dataReader["id"]);
+                juancarlos.Nombre1 = dataReader["Nombre"].ToString();
+                juancarlos.Sexo1 = Convert.ToBoolean(dataReader["Sexo"]);
+                juancarlos.Categoria1 = Convert.ToInt32(dataReader["Categoria"]);
+                listpapa.Add(juancarlos);
+            }
             desconectar(conexion);
             return listpapa;
 
         }
-        public static List<Caracteristica> ListarxCaracteristica2(int id)
+        public static List<Caracteristica> ListarxCaracteristica2()
         {
             List<Caracteristica> papa = new List<Caracteristica>();
             SqlConnection conexion = conectar();
             SqlCommand Consulta = conexion.CreateCommand();
-            Consulta.CommandText = "ListarXCar";
-            Consulta.Parameters.AddWithValue("@idcar", id);
+            Consulta.CommandText = "ListarxCaracteristica2";
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             SqlDataReader dataReader = Consulta.ExecuteReader();
             while (dataReader.Read())
             {
                
                 Caracteristica b = new Caracteristica();
-                b.IdCarac = Convert.ToInt32(dataReader["IdCaracteristica"]);
+                b.IdCarac = Convert.ToInt32(dataReader["id"]);
+                b.Nombre = dataReader["nombre"].ToString();
+                b.PreguntaTexto = dataReader["PreguntaTexto"].ToString();
                 papa.Add(b);
             }
             desconectar(conexion);
             return papa;
 
+        }
+        public static bool bajaCxP(int Id)
+        {
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "BajaCxP";
+            Consulta.Parameters.AddWithValue("@id", Id);
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            desconectar(conexion);
+            return Devuelve;
+
+        }
+        public static bool AltaCxP(int IdPer, int IdCar)
+        {
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "AltaCxP";
+            Consulta.Parameters.AddWithValue("@idPer",IdPer);
+            Consulta.Parameters.AddWithValue("@idCar", IdCar);
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            bool Devuelve = Convert.ToBoolean(Consulta.ExecuteScalar());
+            desconectar(conexion);
+            return Devuelve;
         }
     }
 }

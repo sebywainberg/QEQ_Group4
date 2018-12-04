@@ -243,6 +243,7 @@
     <Content Include="Views\ABM\CaracMod.cshtml" />
     <Content Include="Views\ABM\UserBaj.cshtml" />
     <Content Include="Views\ABM\UserMod.cshtml" />
+    <Content Include="Views\ABM\Carac1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

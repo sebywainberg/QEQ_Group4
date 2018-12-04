@@ -1,0 +1,18 @@
+﻿@using QEQC04.Models;
+<link href="~/Content/RankingCss.css" rel="stylesheet" />
+<form action="@Url.Action("SumbitCxP", "ABM")" method="post">
+    @{
+        foreach (Caracteristica u in ViewBag.ListarxCaracteristica2)
+        {
+            <li>
+                @u.IdCarac
+                @u.Nombre
+                @u.PreguntaTexto
+                <input type="checkbox" name="caracteristicas" value="@u.IdCarac" />
+            </li>
+        }
+        <input class="boton" type="submit" value="ingresar" />
+    }
+    <input type="hidden" name="idper" value="@ViewBag.Iddd" />
+
+</form>

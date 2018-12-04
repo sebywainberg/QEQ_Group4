@@ -1,13 +1,16 @@
 ﻿@using QEQC04.Models;
-<link href="~/Content/ABM.css" rel="stylesheet" />
-@{
-    ViewBag.Title = "CaracXPersonaje";
-    foreach (Personaje u in ViewBag.ListarxPersonaje2)
-    {
-        <li>
-            @u.Nombre1
-        </li>
-    }
-}
+<link href="~/Content/RankingCss.css" rel="stylesheet" />
 
+    @{
+        ViewBag.Title = "CaracXPersonaje";
+        foreach (Personaje a in ViewBag.ListarxPersonaje2)
+        {
+            <li>
+                @a.Nombre1
+                @Html.ActionLink("Ver caracteristicas", "Carac1", "ABM", new { Id = a.Id1 }, null)
+               
+            </li>
+        }
+
+    }
 
