@@ -293,23 +293,14 @@ namespace QEQC04.Models
             desconectar(conexion);
             return Devuelve;
         }
-        public static List<Personaje> ListarxPersonaje2(int id)
+        public static List<Personaje> ListarxPersonaje2()
         {
             List<Personaje> listpapa = new List<Personaje>();
             SqlConnection conexion = conectar();
             SqlCommand Consulta = conexion.CreateCommand();
-            Consulta.CommandText = "ListarxPersonaje";
-            Consulta.Parameters.AddWithValue("@idper", id);
+            Consulta.CommandText = "ListarxPersonaje2";
             Consulta.CommandType = System.Data.CommandType.StoredProcedure;
             SqlDataReader dataReader = Consulta.ExecuteReader();
-            while (dataReader.Read())
-            {
-                Personaje a = new Personaje();
-                Caracteristica b = new Caracteristica();
-                a.Id1 = Convert.ToInt32(dataReader["Personaje"]);
-                b.IdCarac = Convert.ToInt32(dataReader["IdCaracteristica"]);
-                listpapa.Add(a);
-            }
             desconectar(conexion);
             return listpapa;
 

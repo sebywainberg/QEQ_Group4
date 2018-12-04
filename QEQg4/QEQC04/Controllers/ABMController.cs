@@ -351,13 +351,11 @@ namespace QEQC04.Controllers
             }
             return View("Home");
         }
-        public ActionResult CaracXPersonaje(int id = -1)
+        public ActionResult CaracXPersonaje()
         {
                 
                 List<Personaje> ab = new List<Personaje>();
-                List<Caracteristica> ad = new List<Caracteristica>();
-            ab = BD.ListarxPersonaje2(id);
-            ad = BD.ListarxCaracteristica2(id);
+                ab = BD.ListarxPersonaje2();
                 ViewBag.ListarxPersonaje2 = ab;
                 return View();
         }
