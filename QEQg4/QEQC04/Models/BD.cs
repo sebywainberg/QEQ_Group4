@@ -76,7 +76,25 @@ namespace QEQC04.Models
             desconectar(conexion);
             return Devuelve;
         }
-
+        public static Categoria ListarCategoria(int afr)
+        {
+            Categoria v = new Categoria();
+            List<Categoria> Lista = new List<Categoria>();
+            SqlConnection conexion = conectar();
+            SqlCommand Consulta = conexion.CreateCommand();
+            Consulta.CommandText = "Categorias_L";
+            Consulta.Parameters.AddWithValue("@id", afr);
+            Consulta.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlDataReader dataReader = Consulta.ExecuteReader();
+            while (dataReader.Read())
+            {
+                
+                v.Nombre = dataReader["Nombre"].ToString();
+                v.IdCategoria = Convert.ToInt32(dataReader["id"]);
+            }
+            desconectar(conexion);
+            return v;
+        }
         public static List<Categoria> ListarCategorias()
         {
             List<Categoria> Lista = new List<Categoria>();

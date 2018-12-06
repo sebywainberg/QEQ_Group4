@@ -6,8 +6,9 @@
 <link href="~/Content/ABM.css" rel="stylesheet" />
 <form action="@Url.Action("SumbitMCat", "ABM")" method="post">
     <label>
-        Id: @Html.TextBoxFor(x => x.IdCategoria)@Html.ValidationMessageFor(x => x.IdCategoria)
+        Id: @ViewBag.catId
 
+        @Html.HiddenFor(x=>x.IdCategoria)
         Nombre: @Html.TextBoxFor(x => x.Nombre) @Html.ValidationMessageFor(x => x.Nombre)
 
     </label>

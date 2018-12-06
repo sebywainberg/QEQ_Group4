@@ -28,6 +28,8 @@ namespace QEQC04.Controllers
         }
         public ActionResult Categorias()
         {
+            List<Categoria> a = BD.ListarCategorias();
+            ViewBag.ListCat = a;
             return View();
         }
         public ActionResult Personajes()
@@ -78,73 +80,88 @@ namespace QEQC04.Controllers
         }
         public ActionResult PerBajCheck(Personaje ronald)
         {
-            bool EsValid = BD.ListarxPersonaje(ronald.Id1);
-            if (EsValid == false)
+            if (ModelState.IsValidField("Id1"))
             {
-                bool SeBorro = BD.BajaPersonaje(ronald.Id1);
-                ViewBag.Message = "Se ha eliminado correctamente";
+                bool EsValid = BD.ListarxPersonaje(ronald.Id1);
+                if (EsValid == false)
+                {
+                    bool SeBorro = BD.BajaPersonaje(ronald.Id1);
+                    ViewBag.Message = "Se ha eliminado correctamente";
+                }
+                else
+                {
+                    ViewBag.Message = "No se ha podido eliminar, ya que hay registros en la tabla CaracteristicasxPersonaje con ese Personaje";
+
+                }
             }
             else
             {
-                ViewBag.Message = "No se ha podido eliminar, ya que hay registros en la tabla CaracteristicasxPersonaje con ese Personaje";
-
+                return View("PerBaj", ronald);
             }
             return View("Home");
         }
        /* public ActionResult CaracXPersonaje()
         {
-            usuario abc = Session["Usuario"] as usuario;
-            if (abc != null && abc.EsAdmin1 == true)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("IniciarSesion", "Backoffice");
             }
         }*/
 
         [HttpPost]
         public ActionResult SumbitAPer(Personaje a)
         {
-
-            bool esOk = BD.AltaPersonaje(a);
-            if (esOk == true)
+            if (ModelState.IsValid)
             {
-                ViewBag.Message = "No se pudo realizar la alta";
-                return View("PerAlt", a);
+                bool esOk = BD.AltaPersonaje(a);
+                if (esOk == true)
+                {
+                    ViewBag.Message = "No se pudo realizar la alta";
+                    return View("PerAlt", a);
+                }
+                else
+                {
+                    ViewBag.Message = "La alta se ha registrado correctamente";
+                }
             }
             else
             {
-                ViewBag.Message = "La alta se ha registrado correctamente";
+                return View("PerAlt", a);
             }
             return View("Home");
         }
         public ActionResult SumbitMPer(Personaje f)
         {
-            bool esOk = BD.ModPersonaje(f);
-            if (esOk == true)
+            if (ModelState.IsValid)
             {
-                ViewBag.Message = "No se pudo realizar la modificacion";
-                return View("PerMod", f);
+                bool esOk = BD.ModPersonaje(f);
+                if (esOk == true)
+                {
+                    ViewBag.Message = "No se pudo realizar la modificacion";
+                    return View("PerMod", f);
+                }
+                else
+                {
+                    ViewBag.Message = "La modificacion se ha realizado correctamente";
+                }
             }
             else
             {
-                ViewBag.Message = "La modificacion se ha realizado correctamente";
+                return View("PerMod", f);
             }
             return View("Home");
         }
-        public ActionResult CatMod()
+        public ActionResult CatMod(int _Id)
         {
+            ViewBag.catId =_Id;
             usuario abc = Session["Usuario"] as usuario;
             if (abc != null && abc.EsAdmin1 == true)
             {
-                return View();
+                Categoria asd = BD.ListarCategoria(_Id);
+                return View(asd);
             }
             else
             {
                 return RedirectToAction("IniciarSesion", "Backoffice");
             }
+           
         }
         public ActionResult CatAlt()
         {
@@ -173,45 +190,66 @@ namespace QEQC04.Controllers
         }
         public ActionResult CatBajCheck(Categoria ronald)
         {
-
-            bool EsValid = BD.ListarxCategoria(ronald.IdCategoria);
-            if (EsValid == false)
+            if (ModelState.IsValidField("IdCategoria"))
             {
-                bool SeBorro = BD.BajaCategoria(ronald.IdCategoria);
-                ViewBag.Message = "Se ha eliminado correctamente";
+                bool EsValid = BD.ListarxCategoria(ronald.IdCategoria);
+                if (EsValid == false)
+                {
+                    bool SeBorro = BD.BajaCategoria(ronald.IdCategoria);
+                    ViewBag.Message = "Se ha eliminado correctamente";
+                }
+                else
+                {
+                    ViewBag.Message = "No se ha podido eliminar, ya que hay registros en la tabla Personaje con esa Caracteristica";
+
+                }
             }
             else
             {
-                ViewBag.Message = "No se ha podido eliminar, ya que hay registros en la tabla Personaje con esa Caracteristica";
-
+                return View("CatBaj", ronald);
             }
             return View("Home");
         }
         public ActionResult SumbitACat(Categoria w)
         {
-            bool esOk = BD.AltaCategoria(w);
-            if (esOk == true)
+            if (ModelState.IsValid)
             {
-                ViewBag.Message = "No se pudo realizar la alta";
-                return View("CatAlt", w);
+                bool esOk = BD.AltaCategoria(w);
+                if (esOk == true)
+                {
+                    ViewBag.Message = "No se pudo realizar la alta";
+                    return View("CatAlt", w);
+                }
+                else
+                {
+                    ViewBag.Message = "La alta se ha realizado correctamente";
+                }
             }
             else
             {
-                ViewBag.Message = "La alta se ha realizado correctamente";
+                return View("CatAlt", w);
             }
-            return View("Home");
+                return View("Home");
+            
         }
         public ActionResult SumbitMCat(Categoria f)
         {
-            bool esOk = BD.ModCategoria(f);
-            if (esOk == true)
+            if (ModelState.IsValid)
             {
-                ViewBag.Message = "No se pudo realizar la modificacion";
-                return View("CatMod", f);
+                bool esOk = BD.ModCategoria(f);
+                if (esOk == true)
+                {
+                    ViewBag.Message = "No se pudo realizar la modificacion";
+                    return View("CatMod", f);
+                }
+                else
+                {
+                    ViewBag.Message = "La modificacion se ha realizado correctamente";
+                }
             }
             else
             {
-                ViewBag.Message = "La modificacion se ha realizado correctamente";
+                return View("CatMod", f);
             }
             return View("Home");
         }
@@ -253,45 +291,65 @@ namespace QEQC04.Controllers
         }
         public ActionResult SumbitACarac(Caracteristica m)
         {
-            bool esOk = BD.AltaCaracteristica(m);
-            if (esOk == true)
+            if (ModelState.IsValid)
             {
-                ViewBag.Message = "No se pudo realizar la alta";
-                return View("CaracAlt", m);
+                bool esOk = BD.AltaCaracteristica(m);
+                if (esOk == true)
+                {
+                    ViewBag.Message = "No se pudo realizar la alta";
+                    return View("CaracAlt", m);
+                }
+                else
+                {
+                    ViewBag.Message = "La alta se ha realizado correctamente";
+                }
             }
             else
             {
-                ViewBag.Message = "La alta se ha realizado correctamente";
+                return View("CaracAlt", m);
             }
             return View("Home");
         }
         public ActionResult CaracBajCheck(Caracteristica ron)
         {
-
-            bool EsValid = BD.ListarxCategoria(ron.IdCarac);
-            if (EsValid == false)
+            if (ModelState.IsValidField("IdCarac"))
             {
-                bool SeBorro = BD.BajaCategoria(ron.IdCarac);
-                ViewBag.Message = "Se ha eliminado correctamente";
+                bool EsValid = BD.ListarxCategoria(ron.IdCarac);
+                if (EsValid == false)
+                {
+                    bool SeBorro = BD.BajaCategoria(ron.IdCarac);
+                    ViewBag.Message = "Se ha eliminado correctamente";
+                }
+                else
+                {
+                    ViewBag.Message = "No se ha podido eliminar, ya que hay registros en la tabla Personaje con esa Caracteristica";
+
+                }
             }
             else
             {
-                ViewBag.Message = "No se ha podido eliminar, ya que hay registros en la tabla Personaje con esa Caracteristica";
-
+                return View("CaracBaj", ron);
             }
             return View("Home");
         }
         public ActionResult SumbitMCarac(Caracteristica d)
         {
-            bool esOk = BD.ModCaracteristica(d);
-            if (esOk == true)
+            if (ModelState.IsValid)
             {
-                ViewBag.Message = "No se pudo realizar la modificacion";
-                return View("CaracMod", d);
+                bool esOk = BD.ModCaracteristica(d);
+                if (esOk == true)
+                {
+                    ViewBag.Message = "No se pudo realizar la modificacion";
+                    return View("CaracMod", d);
+                }
+                else
+                {
+                    ViewBag.Message = "La modificacion se ha realizado correctamente";
+                }
             }
             else
             {
-                ViewBag.Message = "La modificacion se ha realizado correctamente";
+                return View("CaracMod", d);
             }
             return View("Home");
         }
@@ -321,19 +379,25 @@ namespace QEQC04.Controllers
         }
         public ActionResult UserBajCheck(usuario r)
         {
-
-            bool EsValid = BD.ListarxUsuario(r.Id1);
-            if (EsValid == true)
+            if (ModelState.IsValidField("Id1"))
             {
-                bool SeBorro = BD.BajaUsuario(r.Id1);
-                if (SeBorro == true)
+                bool EsValid = BD.ListarxUsuario(r.Id1);
+                if (EsValid == true)
                 {
-                    ViewBag.Message = "Se ha eliminado correctamente";
+                    bool SeBorro = BD.BajaUsuario(r.Id1);
+                    if (SeBorro == true)
+                    {
+                        ViewBag.Message = "Se ha eliminado correctamente";
+                    }
+                    else
+                    {
+                        ViewBag.Message = "No se ha podido eliminar dicho usuario";
+                    }
                 }
-                else
-                {
-                    ViewBag.Message = "No se ha podido eliminar dicho usuario";
-                }
+            }
+            else
+            {
+                return View("UserBaj", r);
             }
             return View("Home");
         }
@@ -353,11 +417,21 @@ namespace QEQC04.Controllers
         }
         public ActionResult CaracXPersonaje()
         {
-                
+            usuario abc = Session["Usuario"] as usuario;
+            if (abc != null && abc.EsAdmin1 == true)
+            {
                 List<Personaje> ab = new List<Personaje>();
                 ab = BD.ListarxPersonaje2();
                 ViewBag.ListarxPersonaje2 = ab;
+
                 return View();
+            }
+            else
+            {
+                return RedirectToAction("IniciarSesion", "Backoffice");
+            }
+
+
         }
 
         
